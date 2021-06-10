@@ -62,4 +62,11 @@ describe.only('Rooms', () => {
         expect(room4.costPerNight).to.equal(429.44);
       }); 
 
+      it('should default to not being available', () => {
+        expect(room1.isAvailable).to.equal(false);
+        expect(room2.isAvailable).to.equal(false);
+        expect(room3.isAvailable).to.equal(false);
+        expect(room4.isAvailable).to.equal(false);
+      }); 
+
 });

@@ -5,7 +5,8 @@ class Room {
         this.bidet = room.bidet, 
         this.bedSize = room.bedSize, 
         this.numBeds = room.numBeds, 
-        this.costPerNight = room.costPerNight
+        this.costPerNight = room.costPerNight,
+        this.isAvailable = false
         
     }
 }
