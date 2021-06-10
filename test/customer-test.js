@@ -37,14 +37,10 @@ describe.only('Customer', () => {
         expect(customer3.allBookings).to.deep.equal([]);
       }); 
 
-      it('should default to having zero bookings', () => {
-        expect(customer1.allBookings).to.deep.equal([]);
-        expect(customer2.allBookings).to.deep.equal([]);
-        expect(customer3.allBookings).to.deep.equal([]);
+      it('should default to having no current booked room', () => {
+        expect(customer1.bookedRoom).to.equal(false);
+        expect(customer2.bookedRoom).to.equal(false);
+        expect(customer3.bookedRoom).to.equal(false);
       }); 
 
-
-
 });
-
-// testCustomers.customers[0]
