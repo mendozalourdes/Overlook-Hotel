@@ -73,7 +73,7 @@ const testRooms = {
 "roomType": "residential suite",
 "bidet": false,
 "bedSize": "queen",
-"numBeds": 1,
+"numBeds": 2,
 "costPerNight": 429.44
 },
 {
@@ -113,7 +113,7 @@ const testRooms = {
 "roomType": "suite",
 "bidet": true,
 "bedSize": "queen",
-"numBeds": 1,
+"numBeds": 2,
 "costPerNight": 200.39
 }
 
