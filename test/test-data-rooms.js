@@ -26,7 +26,7 @@ const testRooms = {
 },
 {
 "number": 4,
-"roomType": "residential suite",
+"roomType": "junior suite",
 "bidet": false,
 "bedSize": "queen",
 "numBeds": 1,
@@ -42,7 +42,7 @@ const testRooms = {
 },
 {
 "number": 6,
-"roomType": "junior suite",
+"roomType": "residential suite",
 "bidet": true,
 "bedSize": "queen",
 "numBeds": 1,
