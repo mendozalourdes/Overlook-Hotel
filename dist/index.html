@@ -36,11 +36,32 @@
     <div class="reminisce-container">
       <h2 class="past-trips-header" id="pastTripsHeader"> Reminisce about your past trips....</h2>
     </div>
+    <div class="total-cost-container">
+      <h2 class="total-cost-info" id="totalCostInfo"> Lifetime Cost: </h2>
+      <h3 class="total-memories-info" id="totalMemoriesInfo"> Lifetime Memories: Too Many To Count</h3>
+    </div>
     <div class="dashboard-container container" id="dashboardContainer">
       <section class="past-room-card container" id="pastRoomsContainer">
+            <!--  THIS WILL BE DYNAMICALLY ADDED B/C IT DEPENDS ON HOW MANY BOOKINGS PEOPLE HAVE. -->
+            <!-- <section class="past-trip-info-container" id="pastTrip">
+        -----------i might not want an image in here. maybe it's just a card with info in it?
+              <article class="image-section">
+                <article class="image-container">
+                  <img class="residential-suite image" id="residentialSuiteImage" alt="residential-suite-room"
+                    src="./images/residentialSuite.jpg">
+                </article>
+              </article>
+              <article class="text-section flex" id="textSection">
+                <h2 class="room-type-name" id="roomTypeName">Residential Suite</h2>
+                <article class="text-info-box flex">
+                  <p class="room-details"> Details about each room go right here.</p>
+                </article>
+              </article>
+            </section> -->
       </section>
     </div>
   </section>
+
 <!-- Book Room View -->
 
   <section class="book-room-view view" id="bookRoomView">
@@ -54,11 +75,6 @@
           <section class="room-info-container" id="roomInfo1">
             <article class="image-section">
               <article class="image-container">
-                <!-- <img class="plane-icon" alt="plane-icon" src="assets/airplane.png">
-                  <article class="booking-info">
-                      <p class="booked" id="booked1">Book</p>
-                      <p class="booked-count" id="bookedCount1">Today!</p>
-                  </article> -->
                 <img class="residential-suite image" id="residentialSuiteImage" alt="residential-suite-room"
                   src="./images/residentialSuite.jpg">
               </article>
@@ -74,11 +90,6 @@
           <section class="room-info-container" id="roomInfo2">
             <article class="image-section">
               <article class="image-container">
-                <!-- <img class="plane-icon" alt="plane-icon" src="assets/airplane.png">
-                  <article class="booking-info">
-                      <p class="booked" id="booked1">Book</p>
-                      <p class="booked-count" id="bookedCount1">Today!</p>
-                  </article> -->
                 <img class="junior-suite image" id="juniorSuiteImage" alt="junior-suite-room"
                   src="./images/juniorSuite.jpg">
               </article>
@@ -95,11 +106,6 @@
           <section class="room-info-container" id="roomInfo3">
             <article class="image-section">
               <article class="image-container">
-                <!-- <img class="plane-icon" alt="plane-icon" src="assets/airplane.png">
-                  <article class="booking-info">
-                      <p class="booked" id="booked1">Book</p>
-                      <p class="booked-count" id="bookedCount1">Today!</p>
-                  </article> -->
                 <img class="suite image" id="suiteImage" alt="suite-room" src="./images/suite.jpg">
               </article>
             </article>
@@ -114,11 +120,6 @@
           <section class="room-info-container" id="roomInfo4">
             <article class="image-section">
               <article class="image-container">
-                <!-- <img class="plane-icon" alt="plane-icon" src="assets/airplane.png">
-                  <article class="booking-info">
-                      <p class="booked" id="booked1">Book</p>
-                      <p class="booked-count" id="bookedCount1">Today!</p>
-                  </article> -->
                 <img class="single-room image" id="singleRoomImage" alt="single-room" src="./images/singleRoom.jpg">
               </article>
             </article>
@@ -139,6 +140,9 @@
 
       <div class="booking-form container" id="bookingFormContainer">
         <!-- this is where the calendar will go, as well as a button, and then the rooms get displayed below. -->
+        <!-- <button class="find-room button" id="findRoomBtn">Search Available Room</button> -->
+        <section class="available-rooms-container" id="availableRoomsContainer">
+        </section>
       </div>
     </div>
   </section>
