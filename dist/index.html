@@ -2,12 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:400,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Sulphur+Point:400,700&display=swap" rel="stylesheet">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <title>La Vida Viajera</title>
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
+  <header>
+    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
+    <nav>
+      <div class="nav-container">
+        <button class="book-new-room-btn button" id="bookNewRoomBtn" type="button" name="button"><img 
+          src="./images/bed.jpg" alt="bed to book new room">Book New Room</button>
+
+      </div>
+    </nav>
+  </header>
   
   <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   <script src="bundle.js"></script>
