@@ -6,7 +6,7 @@ import Booking from '../src/booking'
 // import testRooms from './test-data-rooms.js'
 // import testCustomers from './test-data-customers.js'
 
-describe.only('Booking', () => {
+describe('Booking', () => {
     let booking1, booking2, booking3, booking4;
   
     beforeEach(() => {

@@ -78,11 +78,11 @@ class Customer {
     let availableRooms = this.availableRoomsByDate
 
     const findByRoomType = availableRooms.filter(room => roomType === room.roomType)
-    // console.log("result?", findByRoomType)
+    console.log("result?", findByRoomType)
 
     if(!findByRoomType) {
         return 'We are terribly sorry, but there are no rooms available given your requests.'
-    } else if (!findByRoomType) {
+    } else if (findByRoomType) {
         return findByRoomType
     }
 

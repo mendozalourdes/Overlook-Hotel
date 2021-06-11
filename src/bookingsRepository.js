@@ -5,6 +5,15 @@ class BookingsRepository {
 
 
         
+    makeNewBooking(userID, date, roomNumber) {
+        
+        return {
+            "userID": userID, 
+            "date": date, 
+            "roomNumber": roomNumber
+        }
+
+    }
 
 
 
