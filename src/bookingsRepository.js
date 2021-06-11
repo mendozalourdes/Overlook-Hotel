@@ -1,8 +1,8 @@
-class Bookings {
+class BookingsRepository {
     constructor(allBookings) {
         this.allBookings = allBookings
     }
 
 }
 
-export default Bookings;
+export default BookingsRepository;
