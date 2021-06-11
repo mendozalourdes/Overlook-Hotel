@@ -3,6 +3,11 @@ class BookingsRepository {
         this.allBookings = allBookings
     }
 
+
+        
+
+
+
 }
 
 export default BookingsRepository;
