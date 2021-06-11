@@ -11,11 +11,6 @@ class Room {
     }
 
 
-    getAvailableRoomByDate(date) {
-        
-
-    }
-
 
 
 

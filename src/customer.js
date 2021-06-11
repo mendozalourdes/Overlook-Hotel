@@ -4,6 +4,7 @@ class Customer {
         this.name = customer.name,
         this.allBookings = [],
         this.bookedRoom = false;
+        this.availableRoomsByDate;
     }
 
   
@@ -55,15 +56,36 @@ class Customer {
 
     return acc
     }, [])
-        //  console.log("2", findRooms)
+    //  console.log("2", findRooms)
     // console.log("availableRooms", availableRooms)
 
-    return findRooms
+        if(!findRooms) {
+            return 'We are terribly sorry, but there are no rooms available given your requests.'
+        this.availableRoomsByDate = findRooms
+        return this.availableRoomsByDate
+    }   else if (findRooms) {
+        this.availableRoomsByDate = findRooms
+        return this.availableRoomsByDate
+    }
+        // this.availableRoomsByDate = findRooms
+        // return this.availableRoomsByDate
+        ///NEED TO ADD SOME EDGE CASES HERE. WHAT IF THERE ARE NO ROOMS AVAILABLE BY DATE????
+
    }
 
 
-   getAvailableRoomByProperty(property,  ) {
-       
+   getAvailableRoomType(roomType) {
+    let availableRooms = this.availableRoomsByDate
+
+    const findByRoomType = availableRooms.filter(room => roomType === room.roomType)
+    // console.log("result?", findByRoomType)
+
+    if(!findByRoomType) {
+        return 'We are terribly sorry, but there are no rooms available given your requests.'
+    } else if (!findByRoomType) {
+        return findByRoomType
+    }
+
    }
 
 
