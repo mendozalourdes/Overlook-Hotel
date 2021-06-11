@@ -67,4 +67,16 @@ describe.only('Customer', () => {
        })
 
 
+      it('should be able to determine room availability by date', () => {
+
+        const checkAvailable1 = customer1.getAvailableRoomByDate("2020/02/14", testBookings, testRooms)
+        // console.log("checkAvail", checkAvailable1)
+        const availableRooms = [testRooms.rooms[0], testRooms.rooms[1], testRooms.rooms[2], testRooms.rooms[3], testRooms.rooms[4], testRooms.rooms[6], testRooms.rooms[7], testRooms.rooms[8], testRooms.rooms[9]]
+        // console.log("answer", availableRooms)
+        expect(checkAvailable1).to.deep.equal(availableRooms);
+        
+      }); 
+
+
+
 });

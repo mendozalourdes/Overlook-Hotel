@@ -34,7 +34,37 @@ class Customer {
         return getCost
     }
 
+   getAvailableRoomByDate(date, allBookings, allRooms) {
+    let findRoomByDate = allBookings.bookings.reduce((acc, booking) => {
+        if(date !== booking.date) {
+            acc.push(booking.roomNumber)
+        }
 
+       return acc 
+    }, [])
+
+    // console.log("find", findRoomByDate)
+
+    const findRooms = allRooms.rooms.reduce((acc, room) => {
+        
+        findRoomByDate.forEach(number => {
+            if(number === room.number) {
+                acc.push(room)
+            }
+        })
+
+    return acc
+    }, [])
+        //  console.log("2", findRooms)
+    // console.log("availableRooms", availableRooms)
+
+    return findRooms
+   }
+
+
+   getAvailableRoomByProperty(property,  ) {
+       
+   }
 
 
 }

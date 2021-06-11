@@ -9,6 +9,16 @@ class Room {
         this.isAvailable = false
         
     }
+
+
+    getAvailableRoomByDate(date) {
+        
+
+    }
+
+
+
+
 }
 
 

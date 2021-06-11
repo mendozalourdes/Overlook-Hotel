@@ -80,6 +80,7 @@ const testRooms = {
 "numBeds": 2,
 "costPerNight": 410.39
 }
+
 ]}
 
 export default testRooms;
