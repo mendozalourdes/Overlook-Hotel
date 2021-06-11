@@ -71,6 +71,14 @@ const testRooms = {
 "bedSize": "queen",
 "numBeds": 2,
 "costPerNight": 200.39
+},
+{
+"number": 10,
+"roomType": "junior suite",
+"bidet": true,
+"bedSize": "queen",
+"numBeds": 2,
+"costPerNight": 410.39
 }
 
 ]}

@@ -68,5 +68,6 @@ describe('Rooms', () => {
         expect(room3.isAvailable).to.equal(false);
         expect(room4.isAvailable).to.equal(false);
       }); 
+      
 
 });

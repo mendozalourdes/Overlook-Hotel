@@ -9,6 +9,11 @@ class Room {
         this.isAvailable = false
         
     }
+
+
+
+
+
 }
 
 
