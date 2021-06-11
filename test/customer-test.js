@@ -1,10 +1,9 @@
 import chai from 'chai';
 const expect = chai.expect;
 import Customer from '../src/customer'
-// import testCustomers from './test-dataset'
-import testCustomers from './test-data-customers.js'
+import testCustomers from './test-data-customers'
 
-describe.only('Customer', () => {
+describe('Customer', () => {
     let customer1, customer2, customer3;
   
     beforeEach(() => {
