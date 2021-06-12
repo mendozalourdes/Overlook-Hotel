@@ -61,6 +61,7 @@ const makeBookingInstances = (apiBookingsData) => {
     const newBookings = apiBookingsData.bookings.map(booking => {
         return new Booking(booking)
     })
+    // console.log("oneBooking", newBookings)
     return newBookings
 }
 
