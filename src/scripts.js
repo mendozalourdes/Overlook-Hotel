@@ -4,6 +4,11 @@
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
 let dayjs = require('dayjs');
+import apiCalls from './apiCalls'
+import BookingsRepository from './bookingsRepository';
+import Customer from './customer';
+import Room from './rooms';
+import Booking from './booking';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 // import './images/turing-logo.png'
@@ -16,6 +21,72 @@ import './images/residentialSuite.jpg'
 import './images/singleRoom.jpg'
 import './images/suite.jpg'
 
+
+//query selectors
+
+
+
+//variables
+let customer, allRooms, booking, allBookings, allCustomers;
+
+
+//event listeners
+
+window.onload = function () {console.log("test")}
+
+window.onload = startUp();
+
+
+
+
+
+function startUp () {
+    apiCalls.retrieveData()
+      .then((promise) => {
+        const bookingsRepo = makeBookingInstances(promise[1]);
+        allBookings = new BookingsRepository(bookingsRepo);
+        allCustomers = makeCustomerInstances(promise[0]);
+        allRooms = makeRoomsInstances(promise[2])
+        makeOneCustomer(promise[3])
+        console.log("oneCust", customer)
+        console.log("allRooms", allRooms)
+        console.log("allBookings", allBookings)
+        console.log("allCust", allCustomers)
+        // domUpdates.updateWelcomeMessage(allCustomers);
+        // domUpdates.renderPastBookings(allBookings, allCustomers)
+      })
+  }
+
+const makeBookingInstances = (apiBookingsData) => {
+    const newBookings = apiBookingsData.bookings.map(booking => {
+        return new Booking(booking)
+    })
+    return newBookings
+}
+
+const makeCustomerInstances = (apiCustomersData) => {
+    const newCustomers = apiCustomersData.customers.map(customer => {
+        return new Customer(customer)
+    })
+    return newCustomers
+}
+  
+  const makeRoomsInstances = (apiRoomsData) => {
+    const newRooms = apiRoomsData.rooms.map(room => {
+        return new Room(room)
+    })
+
+    return newRooms
+  }
+    
+  function makeOneCustomer(apiCustomerData) {
+    // let randomNumber = Math.floor(Math.random() * apiCustomerData.customers.length);
+    customer = new Customer(apiCustomerData);
+
+  }
+
+
+
 // let now = dayjs();
 
 // console.log('This is the JavaScript entry file - your code begins here.');
@@ -25,18 +96,18 @@ import './images/suite.jpg'
 // console.log(now.format("YYYY-MM-DD"));
 
 // const today = dayjs(new Date())
-let currentDate = new Date("2021/06/11")
+// let currentDate = new Date("2021/06/11")
 
 
-let parsedDate = Date.parse(currentDate);
+// let parsedDate = Date.parse(currentDate);
 
-console.log("parsed", parsedDate)
+// console.log("parsed", parsedDate)
 
-let inputDate = new Date("2020/02/16")
+// let inputDate = new Date("2020/02/16")
 
-let parsedInput = Date.parse(inputDate)
+// let parsedInput = Date.parse(inputDate)
 
-console.log("parsedInput", parsedInput)
+// console.log("parsedInput", parsedInput)
 
 // const pastDate = dayjs("2018-10-22")
 // const futureDate = dayjs("2022-01-01")
@@ -50,4 +121,4 @@ console.log("parsedInput", parsedInput)
 
 // console.log("future", futureDate.isBefore(today))
 
-1623391200000
+ 

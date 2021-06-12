@@ -61,8 +61,6 @@ class Customer {
 
         if(!findRooms) {
             return 'We are terribly sorry, but there are no rooms available given your requests.'
-        this.availableRoomsByDate = findRooms
-        return this.availableRoomsByDate
     }   else if (findRooms) {
         this.availableRoomsByDate = findRooms
         return this.availableRoomsByDate
