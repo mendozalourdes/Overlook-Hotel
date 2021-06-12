@@ -16,9 +16,9 @@ body {
   font-size: .5em;
 
 }
-button {
+.button {
 background: plum;
-color: orange;
+color: purple;
 text-transform: uppercase;
 border-radius: 15%;
 padding: .5em;
@@ -36,8 +36,8 @@ font-family: "Verdana", sans-serif;
 p {
 font-size: .5em;
 }
-button:hover{
-color: orange;
+.button:hover{
+color: purple;
 background-color: gray;
 font-weight: bold;
 }
@@ -91,7 +91,32 @@ font-weight: bold;
 }
 
 .booking-form {
-  width: 100vw;
+  width: 48vw;
+}
+
+.booking-section {
+  width: 48vw;
+  height: 144vh;
+}
+
+.book-room-button, 
+.button {
+  background: plum;
+  color: purple;
+  text-transform: uppercase;
+  border-radius: 5%;
+  padding: .5em;
+  font-weight: bold;
+  // font-size: 1em;
+  height: 5vh;
+  width: 10vw;
+  }
+
+.book-room-button:hover {
+color: purple;
+background-color: gray;
+font-weight: bold;
+cursor: pointer;
 }
 
 .past-room-card-container {
@@ -137,27 +162,13 @@ background-color: #EEEEEE;
   padding-top: 5em;
 }
 
-.header-nav-container {
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
-}
-
-.mexico-main-image {
-height: 10vh;
-width: 5vw;
-}
 
 
 .main-title {
 font-size: 4em;
 // padding-top: 1em;
-}
-
-.heading {
-font-size: 3em;
-height: 16vh;
-margin-left: .5em;
+display: flex;
+justify-content: center;
 }
 
 
@@ -208,32 +219,6 @@ overflow: hidden;
 object-fit: cover;
 }
 
-.plane-icon {
-height: 3em;
-width: 3em;
-position: absolute;
-}
-.plane-icon::hover {
-cursor: pointer;
-}
-
-.booking-info {
-height: 8em;
-width: 8em;
-position: absolute;
-display: flex;
-align-items: center;
-flex-direction: column;
-right: 5px;
-bottom: 15px;
-background-color: white;
-border: 1px solid gray;
-font-size: .5em;
-border-radius: 25%;
-justify-content: center;
-}
-
-
 .room-info-container {
 display: flex;
 align-items: center;
@@ -270,9 +255,6 @@ body{
     grid-column-gap: 0%;
     height: 105vh;
    }
-   .main-tour-container {
-    height: 275vh;
-  }
   .room-info-container {
     display: flex;
     align-items: center;
@@ -306,9 +288,6 @@ body{
   grid-column-gap: 0%;
   height: 105vh;
  }
- .main-tour-container {
-  height: 250vh;
-}
 .room-info-container {
   display: flex;
   align-items: center;
@@ -362,10 +341,6 @@ body{
   grid-column-gap: 0%;
   height: 105vh;
  }
- .main-tour-container {
-  height: 200vh;
-}
-
 
 .header1 {
   margin-top: 1em;
