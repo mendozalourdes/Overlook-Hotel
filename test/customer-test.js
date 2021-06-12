@@ -67,45 +67,4 @@ describe('Customer', () => {
        })
 
 
-      it('should be able to determine room availability by date', () => {
-
-        const checkAvailable1 = customer1.getAvailableRoomByDate("2020/02/14", testBookings, testRooms)
-        // console.log("checkAvail", checkAvailable1)
-        const availableRooms = [testRooms.rooms[0], testRooms.rooms[1], testRooms.rooms[2], testRooms.rooms[3], testRooms.rooms[4], testRooms.rooms[6], testRooms.rooms[7], testRooms.rooms[8], testRooms.rooms[9]]
-        // console.log("answer", availableRooms)
-        expect(checkAvailable1).to.deep.equal(availableRooms);
-        
-      }); 
-
-      it('should be able to determine room availability by type', () => {
-
-        const checkAvailable1 = customer1.getAvailableRoomByDate("2020/02/14", testBookings, testRooms)
-        // console.log("checkAvail", checkAvailable1)
-        const availableRooms = [testRooms.rooms[0], testRooms.rooms[1], testRooms.rooms[2], testRooms.rooms[3], testRooms.rooms[4], testRooms.rooms[6], testRooms.rooms[7], testRooms.rooms[8], testRooms.rooms[9]]
-        // console.log("answer", availableRooms)
-        const byType = customer1.getAvailableRoomType("junior suite");
-        // console.log("answer", byType)
-        const answer = [
-          {
-            number: 4,
-            roomType: 'junior suite',
-            bidet: false,
-            bedSize: 'queen',
-            numBeds: 1,
-            costPerNight: 429.44
-          },
-          {
-            number: 10,
-            roomType: 'junior suite',
-            bidet: true,
-            bedSize: 'queen',
-            numBeds: 2,
-            costPerNight: 410.39
-          }
-        ]
-        expect(byType).to.deep.equal(answer);
-        
-      }); 
-
-
 });

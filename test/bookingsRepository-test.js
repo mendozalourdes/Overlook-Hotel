@@ -5,7 +5,7 @@ import testBookings from './test-data-bookings.js';
 // import testRooms from './test-data-rooms.js'
 // import testCustomers from './test-data-customers.js'
 
-describe.only('Bookings Repository', () => {
+describe('Bookings Repository', () => {
     let bookingsRepository;
   
     beforeEach(() => {
