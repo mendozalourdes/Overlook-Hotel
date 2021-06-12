@@ -1,19 +1,21 @@
 class Hotel {
     constructor(allBookings, allRooms) {
-        this.allBookings = allBookings
-        this.allRooms = allRooms, 
+        this.bookings = allBookings
+        this.rooms = allRooms, 
         this.availableRoomsByDate;
     }
 
     getAvailableRoomByDate(date) {
-        let findRoomByDate = this.allBookings.bookings.reduce((acc, booking) => {
+        console.log(this.bookings.bookings)
+        let findRoomByDate = this.bookings.bookings.reduce((acc, booking) => {
+            console.log("booking", booking)
             if(date !== booking.date) {
                 acc.push(booking.roomNumber)
             }
            return acc 
         }, [])
-    
-        const findRooms = this.allRooms.rooms.reduce((acc, room) => {        
+
+        const findRooms = this.rooms.reduce((acc, room) => {        
             findRoomByDate.forEach(number => {
                 if(number === room.number) {
                     acc.push(room)

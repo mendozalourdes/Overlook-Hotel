@@ -8,10 +8,10 @@ describe('Rooms', () => {
   
     beforeEach(() => {
 
-      room1 = new Room(testRooms.rooms[0]);
-      room2 = new Room(testRooms.rooms[1]);
-      room3 = new Room(testRooms.rooms[2]);
-      room4 = new Room(testRooms.rooms[3]);
+      room1 = new Room(testRooms[0]);
+      room2 = new Room(testRooms[1]);
+      room3 = new Room(testRooms[2]);
+      room4 = new Room(testRooms[3]);
         // console.log("test", room1)
     });
   

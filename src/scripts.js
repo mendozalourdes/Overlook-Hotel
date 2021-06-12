@@ -10,6 +10,8 @@ import BookingsRepository from './bookingsRepository';
 import Customer from './customer';
 import Room from './rooms';
 import Booking from './booking';
+import Hotel from './hotel';
+import domUpdates from './domUpdates';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 // import './images/turing-logo.png'
@@ -24,11 +26,13 @@ import './images/suite.jpg'
 
 
 //query selectors
+let pageTitle = document.getElementById('pageTitle');
+let lifetimeCostInfo = document.getElementById('totalCostInfo');
 
 
 
 //variables
-let customer, allRooms, booking, allBookings, allCustomers;
+let customer, allRooms, booking, bookingRepository, allCustomers, hotel;
 
 
 //event listeners
@@ -44,16 +48,23 @@ window.onload = startUp();
 function startUp () {
     apiCalls.retrieveData()
       .then((promise) => {
-        const bookingsRepo = makeBookingInstances(promise[1]);
-        allBookings = new BookingsRepository(bookingsRepo);
+        console.log("promise1", promise[1])
+        const bookingsInstances = makeBookingInstances(promise[1]);
+  
+        bookingRepository = new BookingsRepository(bookingsInstances);
         allCustomers = makeCustomerInstances(promise[0]);
         allRooms = makeRoomsInstances(promise[2])
+        makeHotel(bookingRepository, allRooms)
+        console.log("hotelllll", hotel)
         makeOneCustomer(promise[3])
-        console.log("oneCust", customer)
+        // console.log("bookingsInstances", bookingsInstances)
+        // console.log("oneCust", customer)
         console.log("allRooms", allRooms)
-        console.log("allBookings", allBookings)
-        console.log("allCust", allCustomers)
-        // domUpdates.updateWelcomeMessage(allCustomers);
+        // console.log("bookingsRepoooo", bookingRepository)
+        // console.log("allCust", allCustomers)
+        domUpdates.updateWelcomeMessage(customer);
+
+        domUpdates.updateLifeCostInfo(customer, bookingRepository, allRooms);
         // domUpdates.renderPastBookings(allBookings, allCustomers)
       })
   }
@@ -62,7 +73,7 @@ const makeBookingInstances = (apiBookingsData) => {
     const newBookings = apiBookingsData.bookings.map(booking => {
         return new Booking(booking)
     })
-    // console.log("oneBooking", newBookings)
+    console.log("newOnes", newBookings)
     return newBookings
 }
 
@@ -86,6 +97,12 @@ const makeCustomerInstances = (apiCustomersData) => {
     customer = new Customer(apiCustomerData);
 
   }
+
+  function makeHotel(apiBookingsData, apiRoomsData) {
+    hotel = new Hotel(apiBookingsData, apiRoomsData);
+
+  }
+
 
 
 

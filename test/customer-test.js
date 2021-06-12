@@ -5,7 +5,7 @@ import testCustomers from './test-data-customers'
 import testBookings from './test-data-bookings.js';
 import testRooms from './test-data-rooms.js'
 
-describe('Customer', () => {
+describe.only('Customer', () => {
     let customer1, customer2, customer3;
   
     beforeEach(() => {
