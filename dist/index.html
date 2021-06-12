@@ -10,44 +10,52 @@
   <title>Overlook Hotel</title>
 </head>
 <header>
-  <div class="main-logo-container">
-    <h1 class="page-title" id="pageTitle"> Welcome to Overlook Hotel, Lourdes! </h1>
-    <img src="./images/hotel.jpg" alt="hotel logo" height="100px" width="100px">
-  </div>
-  <nav>
-    <div class="nav-container">
-      <label for="start">Start date:</label>
+  <div class="main-heading-container">
+    <h1 class="page-title main-title" id="pageTitle"> Welcome to Overlook Hotel, Lourdes! </h1>
+    <nav>
+      <img src="./images/hotel.jpg" alt="hotel logo" height="100px" width="100px">
+      <button class="book-new-room-btn button" id="bookNewRoomBtn" type="button" name="button"><img 
+        src="./images/bed.jpg" alt="bed to book new room" class="icon hotel-bed">Book New Room</button>
 
-    <input type="date" id="start" name="trip-start"
-       value="2021-06-01"
-       min="2021-06-01" max="2024-12-31">
-
-      <!-- <button class="book-new-room-btn button" id="bookNewRoomBtn" type="button" name="button"><img 
-        src="./images/bed.jpg" alt="bed to book new room">Book New Room</button> -->
-      <!-- <button class=" return-to-dashboard button hidden" id="returnToDash" type="button" name="button">Return to Dashboard</button> -->
+      <button class=" return-to-dashboard button hidden" id="returnToDash" type="button" name="button">Return to Dashboard</button>
+    </nav>
     </div>
-  </nav>
+    <div class="nav-container">
+      <!-- <button class="book-new-room-btn button" id="bookNewRoomBtn" type="button" name="button"><img 
+        src="./images/bed.jpg" alt="bed to book new room" class="icon hotel-bed">Book New Room</button> -->
+    </div>
 </header>
 
 <body>
-  <!-- <section class="log-in page-view hidden" id="logInPageView">
-    <label for="userName" class="hidden">Username</label>
+  <section class="log-in page-view hidden" id="logInPageView">
+    <label for="userName" class="user-name-label">Username</label>
     <input id="userNameInput" class="user-name input" type="text" autocomplete="off" placeholder="Username..."></input>  
-    <label for="Password" class="hidden">Password</label>
-    <input id="passwordInput" class="password input" type="text" autocomplete="off" placeholder="password..."></input>  
-  </section> -->
+    <label for="Password" class="password-label">Password</label>
+    <input id="passwordInput" class="password input" type="text" autocomplete="off" placeholder="Password..."></input>  
+  </section>
 
  <!-- Past Trips View --> 
-  <section class="dashboard-room-view view" id="dashboard">
-    <div class="reminisce-container">
-      <h2 class="past-trips-header" id="pastTripsHeader"> Reminisce about your past trips....</h2>
-    </div>
-    <div class="total-cost-container">
-      <h2 class="total-cost-info" id="totalCostInfo"> Lifetime Cost: </h2>
-      <h3 class="total-memories-info" id="totalMemoriesInfo"> Lifetime Memories: Too Many To Count</h3>
-    </div>
+  <section class="dashboard-room-view hidden" id="dashboard">
+    <section class="info-containers">
+      <div class="reminisce-container">
+        <h2 class="past-trips-header" id="pastTripsHeader"> Reminisce about your past trips....</h2>
+      </div>
+      <div class="total-cost-container">
+        <h2 class="total-cost-info" id="totalCostInfo"> Lifetime Cost: </h2>
+        <h3 class="total-memories-info" id="totalMemoriesInfo"> Lifetime Memories: Too Many To Count</h3>
+      </div>
+    </section>
     <div class="dashboard-container container" id="dashboardContainer">
-      <section class="past-room-card container" id="pastRoomsContainer">
+      <section class="past-room-card-container" id="pastRoomsContainer">
+        <section class="past-bookings-info" id="pastBookingsInfo">
+          <p class="room-number" id="roomNumber">Room Number:  </p>
+          <p class="date" id="date">Date:  </p>
+          <p class="room-type" id="roomType">Room Type:  </p>
+          <p class="bed-size" id="bedSize">Bed Size:  </p>
+          <p class="cost-per-night" id="costPerNight">Cost Per Night:  </p>
+          <img class="suite image" id="suiteImage" alt="suite-room" src="./images/suite.jpg">
+        </section>
+
             <!--  THIS WILL BE DYNAMICALLY ADDED B/C IT DEPENDS ON HOW MANY BOOKINGS PEOPLE HAVE. -->
             <!-- <section class="past-trip-info-container" id="pastTrip">
         -----------i might not want an image in here. maybe it's just a card with info in it?
@@ -70,12 +78,12 @@
 
 <!-- Book Room View -->
 
-  <section class="book-room-view view" id="bookRoomView">
+  <section class="book-room-view view  " id="bookRoomView">
     <div class="room-options-container">
       <div class="room-option-header-container">
         <h2 class="view-room-options-header" id="viewRoomOptionsHeader"> Room Options</h2>
       </div>
-      <div class="room-options-container container" id="roomOptionsContainer">
+      <div class="room-options-container2 container" id="roomOptionsContainer">
         <section class="room-cards container" id="roomCards">
           <!-- Residential Suite -->
           <section class="room-info-container" id="roomInfo1">
@@ -144,12 +152,28 @@
         <h2 class="booking-header" id="bookingHeader"> Book New Room</h2>
       </div>
 
-      <div class="booking-form container" id="bookingFormContainer">
+      <section class="booking-form container" id="bookingFormContainer">
+        <label for="start">I want to book a room on this date:</label>
+        <input type="date" id="start" name="trip-start"
+           value="2021-06-13"
+           min="2021-06-01" max="2024-12-31">
+           <button class="book-new-room-btn book-room-button" id="bookNewRoomBtn" type="button" name="button">Find My Room</button>
+
         <!-- this is where the calendar will go, as well as a button, and then the rooms get displayed below. -->
         <!-- <button class="find-room button" id="findRoomBtn">Search Available Room</button> -->
         <section class="available-rooms-container" id="availableRoomsContainer">
+          <!-- within this section, we will insertAdjacentHTML depending on what is available first by date -->
         </section>
-      </div>
+        <div class="filter-by-room-type-container hidden">
+          <h2 class="filter-roomType-header" id="filterRoomTypeHeader"> Filter By Room Type:</h2>
+          <div class="filter-by-type-button-section">
+            <button class="residential-suite-button button" id="residentialSteBtn" type="button" name="button">Residential Suite</button>
+            <button class="junior-suite-button button" id="juniorSteBtn" type="button" name="button">Junior Suite</button>
+            <button class="suite-button button" id="suiteBtn" type="button" name="button"> Suite</button>
+            <button class="single-room-button button" id="singleRoomBtn" type="button" name="button">Single Room</button>
+          </div>
+        </div>
+      </section>
     </div>
   </section>
 
