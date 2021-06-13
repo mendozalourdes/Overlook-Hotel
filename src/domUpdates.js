@@ -1,9 +1,10 @@
 let domUpdates = {
 
-    getAllDataToDom(customer, bookingRepository, allRooms) {
+    getAllDataToDom(customer, bookingRepository, allRooms, hotel) {
         domUpdates.updateWelcomeMessage(customer)
         domUpdates.updateLifeCostInfo(customer, bookingRepository, allRooms)
         domUpdates.renderPastandFutureBookings(customer, bookingRepository, allRooms)
+        // domUpdates.generateRoomOptions(event, date, hotel)
     },
 
     updateWelcomeMessage(customer) {
@@ -26,12 +27,12 @@ let domUpdates = {
     renderPastandFutureBookings(customer, bookingRepository, allRooms) {
 
         let myBookings = customer.findAllBookings(bookingRepository, allRooms)
-        console.log("myBookings", myBookings)
+        // console.log("myBookings", myBookings)
         pastRoomsContainer.innerHTML = '';
 
         // console.log("mybookingssss", myBookings)
         myBookings.forEach((booking, i) => {
-            console.log("booking", booking)
+            // console.log("booking", booking)
                 pastRoomsContainer.innerHTML += 
                 `
                 <section class="past-bookings-info" id="pastBookingsInfo">
@@ -48,10 +49,20 @@ let domUpdates = {
                 //   pastRoomsContainer.insertAdjacentHTML('beforeend', cardHtml);
         })
 
+    },
 
+    generateRoomOptions(event, date, hotel) {
+        let eventTarget = event.target.closest('.find-my-room-btn')
+         date = "2020/02/14"
+         console.log("date", date)
+         console.log("testDate", hotel.bookings.bookings[0].date)
+         console.log("hotelTESTING", hotel)
+        if(eventTarget) {
+            let getDates = hotel.getAvailableRoomByDate(date)
+            console.log("getDates", getDates)
+        }
 
-
-    }
+    },
 
 
 

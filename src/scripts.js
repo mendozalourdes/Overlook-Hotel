@@ -24,25 +24,30 @@ import './images/residentialSuite.jpg'
 import './images/singleRoom.jpg'
 import './images/suite.jpg'
 
-
 //query selectors
 let pageTitle = document.getElementById('pageTitle');
 let totalCostInfo = document.getElementById('totalCostInfo');
-let pastRoomsContainer = document.getElementById('pastRoomsContainer')
-
-
+let pastRoomsContainer = document.getElementById('pastRoomsContainer');
+let navContainer = document.getElementById('navContainer');
+let bookRoomView = document.getElementById('bookRoomView');
+let dashboardView = document.getElementById('dashboardView');
+let bookNewRoomBtn = document.getElementById('bookNewRoomBtn');
+let returnToDashBtn = document.getElementById('returnToDashBtn');
+let findMyRoomBtn = document.getElementById('findMyRoomBtn');
 
 //variables
 let customer, allRooms, booking, bookingRepository, allCustomers, hotel;
 
-
 //event listeners
 
-window.onload = function () {console.log("test")}
-
 window.onload = startUp();
-
-
+window.addEventListener('click', renderBookRoomView);
+window.addEventListener('click', function (event) {
+  console.log("eventTest", event.target)
+} )
+window.addEventListener('click', returnToDashboard);
+// window.addEventListener('click', getAllData)
+window.addEventListener('click', () => domUpdates.generateRoomOptions(event, date, hotel))
 
 
 
@@ -59,16 +64,21 @@ function startUp () {
         // console.log("hotelllll", hotel)
         makeOneCustomer(promise[3])
         // console.log("bookingsInstances", bookingsInstances)
-        console.log("oneCust", customer)
-        console.log("allRooms", allRooms)
-        console.log("bookingsRepoooo", bookingRepository)
+        // console.log("oneCust", customer)
+        // console.log("allRooms", allRooms)
+        // console.log("bookingsRepoooo", bookingRepository)
         // console.log("allCust", allCustomers)
         domUpdates.getAllDataToDom(customer, bookingRepository, allRooms, hotel);
-        // domUpdates.updateWelcomeMessage(customer);
-
-        // domUpdates.updateLifeCostInfo(customer, bookingRepository, allRooms);
-        // domUpdates.renderPastBookings(allBookings, allCustomers)
+      //  getAllData(customer, bookingRepository, allRooms, hotel)
+      console.log("customerID", customer)
+        
       })
+  }
+
+  function getAllData(event, customer, bookingRepository, allRooms, hotel) {
+    console.log("testHotel", hotel)
+    domUpdates.generateRoomOptions(event, date, hotel)
+
   }
 
 const makeBookingInstances = (apiBookingsData) => {
@@ -106,6 +116,39 @@ const makeCustomerInstances = (apiCustomersData) => {
   }
 
 
+  function show(element) {
+    element.classList.remove('hidden');
+  }
+  
+  function hide(element) {
+    element.classList.add('hidden');
+  }
+  
+
+  function renderBookRoomView(event) {
+    let eventTarget = event.target.closest('.book-new-room-btn')
+
+    if(eventTarget) {
+      hide(dashboardView);
+      hide(bookNewRoomBtn);
+      show(bookRoomView);
+      show(returnToDashBtn);
+    }
+
+  }
+
+  function returnToDashboard(event) {
+    let eventTarget = event.target.closest('.return-to-dashboard')
+
+    if(eventTarget) {
+      hide(bookRoomView);
+      hide(returnToDashBtn);
+      show(dashboardView);
+      show(bookNewRoomBtn);
+    }
+
+  }
+
 
 
 // let now = dayjs();
@@ -142,4 +185,5 @@ const makeCustomerInstances = (apiCustomersData) => {
 
 // console.log("future", futureDate.isBefore(today))
 
+// const input = dayjs(arrivalDate.value).format('YYYY/MM/DD');
  
