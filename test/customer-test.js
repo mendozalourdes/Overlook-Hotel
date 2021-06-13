@@ -46,9 +46,10 @@ describe('Customer', () => {
 
 
       it('should be able to find all bookings', () => {
-       let findBookings =  customer1.findAllBookings(testBookings);
-       let findBookings2 = customer2.findAllBookings(testBookings);
-        let findBookings3 = customer3.findAllBookings(testBookings);
+       let findBookings =  customer1.findAllBookings(testBookings, testRooms);
+       let findBookings2 = customer2.findAllBookings(testBookings, testRooms);
+        let findBookings3 = customer3.findAllBookings(testBookings, testRooms);
+        // console.log("findBook", findBookings)
         expect(findBookings).to.deep.equal([testBookings.bookings[0], testBookings.bookings[3], testBookings.bookings[6], testBookings.bookings[9]])
         expect(findBookings2).to.deep.equal([testBookings.bookings[1], testBookings.bookings[4], testBookings.bookings[7]])
         expect(findBookings3).to.deep.equal([testBookings.bookings[2], testBookings.bookings[5], testBookings.bookings[8]])

@@ -10,7 +10,7 @@ describe('Bookings Repository', () => {
   
     beforeEach(() => {
 
-      bookingsRepository = new BookingsRepository(testBookings.bookings);
+      bookingsRepository = new BookingsRepository(testBookings);
       // console.log(bookings)
 
     });
@@ -20,7 +20,7 @@ describe('Bookings Repository', () => {
     });
 
     it('should hold all of the information for every booking', () => {
-        expect(bookingsRepository.allBookings).to.equal(testBookings.bookings);
+        expect(bookingsRepository.bookings).to.equal(testBookings);
     
       });
 

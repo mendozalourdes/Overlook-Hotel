@@ -1,6 +1,6 @@
 class BookingsRepository {
-    constructor(allBookings) {
-        this.allBookings = allBookings
+    constructor(bookings) {
+        this.bookings = bookings
     }
 
 

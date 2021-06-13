@@ -27,19 +27,19 @@ describe('Hotel', () => {
     });
 
     it('should hold all bookings data ', () => {
-        expect(hotel.allBookings).to.equal(testBookings);
+        expect(hotel.bookings).to.equal(testBookings);
       });
     
 
     it('should hold all rooms data ', () => {
-        expect(hotel.allRooms).to.equal(testRooms);
+        expect(hotel.rooms).to.equal(testRooms);
       });
 
     it('should be able to determine room availability by date', () => {
 
     const checkAvailable1 = hotel.getAvailableRoomByDate("2020/02/14")
     // console.log("checkAvail", checkAvailable1)
-    const availableRooms = [testRooms.rooms[0], testRooms.rooms[1], testRooms.rooms[2], testRooms.rooms[3], testRooms.rooms[4], testRooms.rooms[6], testRooms.rooms[7], testRooms.rooms[8], testRooms.rooms[9]]
+    const availableRooms = [testRooms[0], testRooms[1], testRooms[2], testRooms[3], testRooms[4], testRooms[6], testRooms[7], testRooms[8], testRooms[9]]
     // console.log("answer", availableRooms)
     expect(checkAvailable1).to.deep.equal(availableRooms);
     
@@ -49,7 +49,7 @@ describe('Hotel', () => {
 
         const checkAvailable1 = hotel.getAvailableRoomByDate("2020/02/14")
         // console.log("checkAvail", checkAvailable1)
-        const availableRooms = [testRooms.rooms[0], testRooms.rooms[1], testRooms.rooms[2], testRooms.rooms[3], testRooms.rooms[4], testRooms.rooms[6], testRooms.rooms[7], testRooms.rooms[8], testRooms.rooms[9]]
+        const availableRooms = [testRooms[0], testRooms[1], testRooms[2], testRooms[3], testRooms[4], testRooms[6], testRooms[7], testRooms[8], testRooms[9]]
         // console.log("answer", availableRooms)
         const byType = hotel.getAvailableRoomType("junior suite");
         // console.log("answer", byType)
