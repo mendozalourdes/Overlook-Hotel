@@ -27,7 +27,8 @@ import './images/suite.jpg'
 
 //query selectors
 let pageTitle = document.getElementById('pageTitle');
-let lifetimeCostInfo = document.getElementById('totalCostInfo');
+let totalCostInfo = document.getElementById('totalCostInfo');
+let pastRoomsContainer = document.getElementById('pastRoomsContainer')
 
 
 
@@ -48,23 +49,24 @@ window.onload = startUp();
 function startUp () {
     apiCalls.retrieveData()
       .then((promise) => {
-        console.log("promise1", promise[1])
+        // console.log("promise1", promise[1])
         const bookingsInstances = makeBookingInstances(promise[1]);
   
         bookingRepository = new BookingsRepository(bookingsInstances);
         allCustomers = makeCustomerInstances(promise[0]);
         allRooms = makeRoomsInstances(promise[2])
         makeHotel(bookingRepository, allRooms)
-        console.log("hotelllll", hotel)
+        // console.log("hotelllll", hotel)
         makeOneCustomer(promise[3])
         // console.log("bookingsInstances", bookingsInstances)
-        // console.log("oneCust", customer)
+        console.log("oneCust", customer)
         console.log("allRooms", allRooms)
-        // console.log("bookingsRepoooo", bookingRepository)
+        console.log("bookingsRepoooo", bookingRepository)
         // console.log("allCust", allCustomers)
-        domUpdates.updateWelcomeMessage(customer);
+        domUpdates.getAllDataToDom(customer, bookingRepository, allRooms, hotel);
+        // domUpdates.updateWelcomeMessage(customer);
 
-        domUpdates.updateLifeCostInfo(customer, bookingRepository, allRooms);
+        // domUpdates.updateLifeCostInfo(customer, bookingRepository, allRooms);
         // domUpdates.renderPastBookings(allBookings, allCustomers)
       })
   }
@@ -73,7 +75,7 @@ const makeBookingInstances = (apiBookingsData) => {
     const newBookings = apiBookingsData.bookings.map(booking => {
         return new Booking(booking)
     })
-    console.log("newOnes", newBookings)
+    // console.log("newOnes", newBookings)
     return newBookings
 }
 
