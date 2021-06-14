@@ -1,3 +1,7 @@
+import domUpdates from "./domUpdates";
+
+let modal = document.getElementById("myModal");
+
 let randomNumber = Math.floor(Math.random() * 50);
 
 
@@ -11,8 +15,8 @@ const checkForError = (response) => {
 
   function handleError(response) {
     if (!response.ok) {
-      errorTag.innerText = 'Sorry, that request did not work.';
-      throw new Error('Sorry, that request did not work');
+      domUpdates.bookingErrorMessage()
+      throw new Error('Sorry, that request did not work, please try again.');
     } else {
       return response => response.json()
     }
@@ -50,22 +54,26 @@ function retrieveData() {
   }
 
 
-  function bookNewRoom(user, date, roomNumber, customer) {
+  function bookNewRoom(customerID, date, roomNumber) {
     return fetch('http://localhost:3001/api/v1/bookings', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        userID: customer.id,
+        userID: customerID,
         date: date,
         roomNumber: roomNumber
       }),
     })
-      .then(checkForError)
+      .then(handleError)
+      .then(() => domUpdates.confirmationInfo())
+      .then(() => console.log("You did it!"))
       .catch(err => console.error(`POST Request Error: ${err.message}`))
   }
   
   
   export default {fetchCustomersData, fetchBookingsData, fetchRoomsData, retrieveData, bookNewRoom}
   
+
+ 

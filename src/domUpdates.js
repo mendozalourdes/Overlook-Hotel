@@ -1,6 +1,25 @@
 let dayjs = require('dayjs');
 
+let modal = document.getElementById("myModal");
+
 let domUpdates = {
+
+    confirmationInfo() {
+        domUpdates.hide(bookRoomBtn)
+        availableRoomsContainer.innerHTML = '';
+        availableRoomsContainer.innerHTML +=
+        `
+        <p class="congratulations-message" id="congratulationsMessage"> Congratulations on your new booking!</p>
+        `
+    },
+
+    bookingErrorMessage() {
+        availableRoomsContainer.innerHTML = '';
+        availableRoomsContainer.innerHTML +=
+        `
+        <p class="error-message" id="errorMessage"> Sorry, that did not work. Please try again.</p>
+        `
+    },
 
     show(element) {
         element.classList.remove('hidden');
@@ -72,7 +91,7 @@ let domUpdates = {
 
 
         // console.log("date", date)
-        let availableRoomsContainer = document.getElementById('availableRoomsContainer');
+        // let availableRoomsContainer = document.getElementById('availableRoomsContainer');
         availableRoomsContainer.innerHTML = '';
         let availableRooms;
 
@@ -101,7 +120,7 @@ let domUpdates = {
 
     generateRoomsByType(event, hotel) {
 
-        let availableRoomsContainer = document.getElementById('availableRoomsContainer');
+        // let availableRoomsContainer = document.getElementById('availableRoomsContainer');
         availableRoomsContainer.innerHTML = '';
 
         let type;
@@ -132,12 +151,12 @@ let domUpdates = {
          availableRoomsContainer.innerHTML += 
          
          `
-         <section class="available-room ${room.number}" id="${room.number}">
-                <h1 class="room-available-header" id="${room.number}"> Room Number ${room.number} </h1>
-                <p class="room-type" id="${room.number}">Room Type ${room.roomType} </p> 
-                <p class="bed-size" id="${room.number}">Bed Size: ${room.bedSize} & Number of Beds: ${room.numBeds} </p>
-                <p class="cost-per-night" id="${room.number}">Cost Per Night: $${room.costPerNight} </p>
-                <p class="bidet" id="bidet">Does it have a bidet?:  ${room.bidet} </p>
+         <section class="room-choice available-room ${room.number}" id="${room.number}">
+                <h1 class="room-choice room-available-header" id="${room.number}"> Room Number ${room.number} </h1>
+                <p class="room-choice room-type" id="${room.number}">Room Type ${room.roomType} </p> 
+                <p class="room-choice bed-size" id="${room.number}">Bed Size: ${room.bedSize} & Number of Beds: ${room.numBeds} </p>
+                <p class="room-choice cost-per-night" id="${room.number}">Cost Per Night: $${room.costPerNight} </p>
+                <p class="room-choice bidet" id="bidet">Does it have a bidet?:  ${room.bidet} </p>
          </section>
 
          `   
@@ -146,39 +165,41 @@ let domUpdates = {
 
         domUpdates.hide(filterByTypeContainer);
         domUpdates.hide(calendarFindSection);
-        domUpdates.show(bookRoomBtnSection);
+        // domUpdates.show(bookRoomBtnSection);
 
 
     }, 
 
-    bookRoom(event, allRooms) {
+    chooseRoom(event, allRooms, customer) {
 
-        // console.log("date", bookingDateCalendar.value)
+        if (event.target.classList.contains('room-choice')) {
         let chosenRoomNumber = parseInt(event.target.id)
-        console.log("chosenNumber", chosenRoomNumber)
 
-
-        let availableRoomsContainer = document.getElementById('availableRoomsContainer');
         availableRoomsContainer.innerHTML = '';
             let chosenRoom = allRooms.find(room => room.number === chosenRoomNumber);
-            console.log("findRoom", chosenRoom)
+            // console.log("findRoom", chosenRoom)
 
         availableRoomsContainer.innerHTML += 
          
         `
-        <section class="available-room ${chosenRoom.number}" id="${chosenRoom.number}">
-               <h1 class="room-available-header" id="${chosenRoom.number}"> Room Number ${chosenRoom.number} </h1>
-               <p class="room-type" id="${chosenRoom.number}">Room Type ${chosenRoom.roomType} </p> 
-               <p class="bed-size" id="${chosenRoom.number}">Bed Size: ${chosenRoom.bedSize} & Number of Beds: ${chosenRoom.numBeds} </p>
-               <p class="cost-per-night" id="${chosenRoom.number}">Cost Per Night: $${chosenRoom.costPerNight} </p>
-               <p class="bidet" id="bidet">Does it have a bidet?:  ${chosenRoom.bidet} </p>
+        <div class="book-room-button-section " id="${chosenRoom.number}">
+            <button class="book-room-button button" id="${chosenRoom.number}" type="button" name="button">Book This Room!</button>
+        </div>
+        <section class=" room-choice available-room-choice ${chosenRoom.number}" id="${chosenRoom.number}">
+               <h1 class="room-choice room-available-header" id="${chosenRoom.number}"> Room Number ${chosenRoom.number} </h1>
+               <p class="room-choice room-type" id="${chosenRoom.number}">Room Type ${chosenRoom.roomType} </p> 
+               <p class="room-choice bed-size" id="${chosenRoom.number}">Bed Size: ${chosenRoom.bedSize} & Number of Beds: ${chosenRoom.numBeds} </p>
+               <p class="room-choice cost-per-night" id="${chosenRoom.number}">Cost Per Night: $${chosenRoom.costPerNight} </p>
+               <p class="room-choice bidet" id="bidet">Does it have a bidet?:  ${chosenRoom.bidet} </p>
         </section>
 
         `   
-
-       
-
+        }
     },
+
+
+
+    
 
 
 

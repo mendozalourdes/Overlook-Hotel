@@ -23,6 +23,7 @@
       <!-- <button class="book-new-room-btn button" id="bookNewRoomBtn" type="button" name="button"><img 
         src="./images/bed.jpg" alt="bed to book new room" class="icon hotel-bed">Book New Room</button> -->
     </div>
+    
 </header>
 
 <body>
@@ -77,7 +78,9 @@
 
 <!-- Book Room View -->
 
+
   <section class="book-room-view hidden " id="bookRoomView">
+ 
     <div class="room-options-container">
       <div class="room-option-header-container">
         <h2 class="view-room-options-header" id="viewRoomOptionsHeader"> Room Options</h2>
@@ -152,6 +155,23 @@
       </div>
 
       <section class="booking-form container" id="bookingFormContainer">
+
+        <!-- <div id="modalContainer" class="modal-container hidden">
+          <div class="interior" id="openModal">
+            <a class="btn" href="#open-modal">Congratulations! Your booking was successful</a>
+          </div>
+          <div id="open-modal" class="modal-window">
+            <div>
+              <a href="#" title="Close" id="closeModal" class="modal-close">Close</a>
+              <h1>Congratulations! Your booking was successful</h1>
+              <!-- <div>A CSS-only modal based on the :target pseudo-class. Hope you find it helpful.</div> -->
+              <!-- <div><small>Check out</small></div> -->
+              <!-- <a href="https://aminoeditor.com" target="_blank">👉 Amino: Live CSS Editor for Chrome</div> -->
+              <!-- </div> -->
+            <!-- </div> -->
+          <!-- </div> --> 
+          
+
         <div class="calender-and-find-section" id="calendarFindSection">
           <label for="start">I want to book a room on this date:</label>
           <input type="date" id="bookingDateCalendar" name="trip-start"
@@ -171,8 +191,9 @@
             <button class="single-room-button button" id="singleRoom" type="button" name="button">Single Room</button>
           </div>
         </div>
-        <div class="book-room-button-section hidden" id="bookRoomBtnSection">
-          <button class="book-room-button button" id="bookRoomBtn" type="button" name="button">Book This Room!</button>
+        <div class="book-room-button-section" id="bookRoomBtnSection">
+          <button class="book-room-button button hidden" id="bookRoomBtn" type="button" name="button">Book This Room!</button>
+          <p class="congratulations-message hidden" id="congratulationsMessage"> Congratulations on your new booking!</p>
         </div>
 
         <!-- this is where the calendar will go, as well as a button, and then the rooms get displayed below. -->
