@@ -3,6 +3,7 @@
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 // import './css/base.scss';
+
 import './css/index.scss';
 let dayjs = require('dayjs');
 import apiCalls from './apiCalls'
@@ -44,13 +45,15 @@ let filterByTypeBtnSection = document.getElementById('filter-by-type-button-sect
 // let checkAvailabilityBtn = document.getElementById('checkAvailabilityBtn');
 // let searchRoomType = document.getElementById('searchRoomType');
 // let roomTypeOption = document.getElementById('checkAvailability');
-let bookRoomBtn = document.getElementById('bookRoomBtn');
+// let bookRoomBtn = document.getElementById('bookRoomBtn');
 let bookRoomBtnSection = document.getElementById('bookRoomBtnSection');
-let bookingSection = document.getElementById('bookingSection')
-
+let bookingSection = document.getElementById('bookingSection');
+let bookRoomBtn = document.querySelector('book-room-button');
+// let availableRoomsContainer = document.getElementById('availableRoomsContainer');
+// let congratulationsMessage = document.getElementById('congratulationsMessage')
 
 //variables
-let customer, allRooms, booking, bookingRepository, allCustomers, hotel;
+let customer, allRooms, booking, bookingRepository, allCustomers, hotel, roomNum;
 
 //event listeners
 
@@ -63,9 +66,27 @@ window.addEventListener('click', returnToDashboard);
 // window.addEventListener('click', getAllData)
 findMyRoomBtn.addEventListener('click', () => domUpdates.generateRoomOptions(event, date, hotel, customer))
 filterByTypeBtnSection.addEventListener('click', () => domUpdates.generateRoomsByType(event, hotel))
-// bookRoomBtn.addEventListener('click', () =>  domUpdates.bookRoom(event, allRooms))
-availableRoomsContainer.addEventListener('click', () =>  domUpdates.bookRoom(event, allRooms))
+availableRoomsContainer.addEventListener('click', () =>  domUpdates.chooseRoom(event, allRooms, customer))
+availableRoomsContainer.addEventListener('click', () =>  bookRoom(event))
+// closeModal.addEventListener('click', () => domUpdates.hideModal)
 
+function bookRoom(event) {
+  if (event.target.classList.contains('book-room-button')) {
+      let roomNum = parseInt(event.target.id)
+      let date = dayjs(bookingDateCalendar.value).format('YYYY/MM/DD');
+      let customerBooking = customer
+      // roomNum = chosenRoom.number
+      console.log("chosen", roomNum)
+      console.log("dateVal", date)
+      console.log("custttttID", customerBooking.id)
+      apiCalls.bookNewRoom(customerBooking.id, date, roomNum)
+
+  } else {
+    event.preventDefault();
+  }
+
+
+}
 
 
 function startUp () {
