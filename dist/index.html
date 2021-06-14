@@ -12,15 +12,14 @@
 <header>
   <div class="main-heading-container">
     <h1 class="page-title main-title" id="pageTitle"> Welcome to Overlook Hotel, Lourdes! </h1>
-    <nav>
+    <nav class="nav-section">
       <img src="./images/hotel.jpg" alt="hotel logo" height="100px" width="100px">
-      <button class="book-new-room-btn button" id="bookNewRoomBtn" type="button" name="button"><img 
-        src="./images/bed.jpg" alt="bed to book new room" class="icon hotel-bed">Book New Room</button>
-
-      <button class=" return-to-dashboard button hidden" id="returnToDash" type="button" name="button">Return to Dashboard</button>
+      <button class="book-new-room-btn button" id="bookNewRoomBtn" type="button" name="button">Book New Room</button>
+      <!-- <img src="./images/bed.jpg" alt="bed to book new room" class="icon hotel-bed"> -->
+      <button class=" return-to-dashboard button hidden" id="returnToDashBtn" type="button" name="button">Return to Dashboard</button>
     </nav>
     </div>
-    <div class="nav-container">
+    <div class="nav-container" id="navContainer">
       <!-- <button class="book-new-room-btn button" id="bookNewRoomBtn" type="button" name="button"><img 
         src="./images/bed.jpg" alt="bed to book new room" class="icon hotel-bed">Book New Room</button> -->
     </div>
@@ -35,7 +34,7 @@
   </section>
 
  <!-- Past Trips View --> 
-  <section class="dashboard-room-view" id="dashboard">
+  <section class="dashboard-room-view" id="dashboardView">
     <section class="info-containers">
       <div class="reminisce-container">
         <h2 class="past-trips-header" id="pastTripsHeader"> Reminisce about your past trips....</h2>
@@ -78,7 +77,7 @@
 
 <!-- Book Room View -->
 
-  <section class="book-room-view view hidden  " id="bookRoomView">
+  <section class="book-room-view hidden " id="bookRoomView">
     <div class="room-options-container">
       <div class="room-option-header-container">
         <h2 class="view-room-options-header" id="viewRoomOptionsHeader"> Room Options</h2>
@@ -153,26 +152,34 @@
       </div>
 
       <section class="booking-form container" id="bookingFormContainer">
-        <label for="start">I want to book a room on this date:</label>
-        <input type="date" id="start" name="trip-start"
-           value="2021-06-13"
-           min="2021-06-01" max="2024-12-31">
-           <button class="book-new-room-btn book-room-button" id="bookNewRoomBtn" type="button" name="button">Find My Room</button>
+        <div class="calender-and-find-section" id="calendarFindSection">
+          <label for="start">I want to book a room on this date:</label>
+          <input type="date" id="bookingDateCalendar" name="trip-start"
+             value="2021-06-01"
+             min="2021-06-01" max="2024-12-31" required>
+             <!-- <input type="date" id="arrivalDate" value="2021-01-01" min="2021-01-01" name="arrive" required> -->
+             <button class="find-my-room-btn book-room-button" id="findMyRoomBtn" type="button" name="button">Find My Room</button>
+
+        </div>
+        <div class="filter-by-room-type-container hidden" id="filterByTypeContainer">
+          <h2 class="filter-roomType-header" id="filterRoomTypeHeader"> Filter By Room Type:</h2>
+
+          <div class="filter-by-type-button-section" id="filter-by-type-button-section">
+            <button class="residential-suite-button button" id="residentialSuite" type="button" name="button">Residential Suite</button>
+            <button class="junior-suite-button button" id="juniorSuite" type="button" name="button">Junior Suite</button>
+            <button class="suite-button button" id="suite" type="button" name="button"> Suite</button>
+            <button class="single-room-button button" id="singleRoom" type="button" name="button">Single Room</button>
+          </div>
+        </div>
+        <div class="book-room-button-section hidden" id="bookRoomBtnSection">
+          <button class="book-room-button button" id="bookRoomBtn" type="button" name="button">Book This Room!</button>
+        </div>
 
         <!-- this is where the calendar will go, as well as a button, and then the rooms get displayed below. -->
         <!-- <button class="find-room button" id="findRoomBtn">Search Available Room</button> -->
         <section class="available-rooms-container" id="availableRoomsContainer">
           <!-- within this section, we will insertAdjacentHTML depending on what is available first by date -->
         </section>
-        <div class="filter-by-room-type-container hidden">
-          <h2 class="filter-roomType-header" id="filterRoomTypeHeader"> Filter By Room Type:</h2>
-          <div class="filter-by-type-button-section">
-            <button class="residential-suite-button button" id="residentialSteBtn" type="button" name="button">Residential Suite</button>
-            <button class="junior-suite-button button" id="juniorSteBtn" type="button" name="button">Junior Suite</button>
-            <button class="suite-button button" id="suiteBtn" type="button" name="button"> Suite</button>
-            <button class="single-room-button button" id="singleRoomBtn" type="button" name="button">Single Room</button>
-          </div>
-        </div>
       </section>
     </div>
   </section>

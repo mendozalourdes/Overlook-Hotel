@@ -50,14 +50,14 @@ function retrieveData() {
   }
 
 
-  function addNewBooking(userID, date, roomNumber, customer) {
+  function bookNewRoom(user, date, roomNumber, customer) {
     return fetch('http://localhost:3001/api/v1/bookings', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        userID: userID,
+        userID: customer.id,
         date: date,
         roomNumber: roomNumber
       }),
@@ -67,5 +67,5 @@ function retrieveData() {
   }
   
   
-  export default {fetchCustomersData, fetchBookingsData, fetchRoomsData, retrieveData, addNewBooking}
+  export default {fetchCustomersData, fetchBookingsData, fetchRoomsData, retrieveData, bookNewRoom}
   

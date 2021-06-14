@@ -1,36 +1,40 @@
 class Hotel {
     constructor(allBookings, allRooms) {
-        this.bookings = allBookings
+        this.bookings = allBookings,
         this.rooms = allRooms, 
         this.availableRoomsByDate;
     }
 
     getAvailableRoomByDate(date) {
-        console.log(this.bookings.bookings)
-        let findRoomByDate = this.bookings.bookings.reduce((acc, booking) => {
-            console.log("booking", booking)
-            if(date !== booking.date) {
+
+       const findDateMatches = this.bookings.bookings.reduce((acc, booking) => {
+
+            if (date === booking.date & !acc.includes(booking.roomNumber)) {
                 acc.push(booking.roomNumber)
             }
-           return acc 
-        }, [])
 
-        const findRooms = this.rooms.reduce((acc, room) => {        
-            findRoomByDate.forEach(number => {
-                if(number === room.number) {
-                    acc.push(room)
-                }
-            })
-        return acc
+            return acc
         }, [])
-            if(!findRooms) {
-                return 'We are terribly sorry, but there are no rooms available given your requests.'
-        }   else if (findRooms) {
-            this.availableRoomsByDate = findRooms
-            return this.availableRoomsByDate
-        }
+        // console.log("findDateMatches", findDateMatches)
+        // console.log("rooooooms", this.rooms)
+
+        const findRoomsAvailableDate = this.rooms.filter(room => {
+
+            if(!findDateMatches.includes(room.number)) {
+                return room
+            }
+
+        })
+        console.log("findAvail", findRoomsAvailableDate)
+
+        if(!findRoomsAvailableDate) {
+            return 'We are terribly sorry, but there are no rooms available given your requests.'
+    }   else if (findRoomsAvailableDate) {
+        this.availableRoomsByDate = findRoomsAvailableDate
+        return this.availableRoomsByDate
+    }
+        
        }
-
 
        getAvailableRoomType(roomType) {
         let availableRooms = this.availableRoomsByDate

@@ -24,25 +24,47 @@ import './images/residentialSuite.jpg'
 import './images/singleRoom.jpg'
 import './images/suite.jpg'
 
-
 //query selectors
 let pageTitle = document.getElementById('pageTitle');
 let totalCostInfo = document.getElementById('totalCostInfo');
-let pastRoomsContainer = document.getElementById('pastRoomsContainer')
-
+let pastRoomsContainer = document.getElementById('pastRoomsContainer');
+let navContainer = document.getElementById('navContainer');
+let bookRoomView = document.getElementById('bookRoomView');
+let dashboardView = document.getElementById('dashboardView');
+let bookNewRoomBtn = document.getElementById('bookNewRoomBtn');
+let returnToDashBtn = document.getElementById('returnToDashBtn');
+let findMyRoomBtn = document.getElementById('findMyRoomBtn');
+let availableRoomsContainer = document.getElementById('availableRoomsContainer');
+let bookingFormContainer = document.getElementById('bookingFormContainer');
+let bookingDateCalendar = document.getElementById('bookingDateCalendar');
+let filterByTypeContainer = document.getElementById('filterByTypeContainer');
+let calendarFindSection = document.getElementById('calendarFindSection');
+let filterByTypeBtnSection = document.getElementById('filter-by-type-button-section');
+// let findMyRoomBtn = document.getElementById('findMyRoomBtn')
+// let checkAvailabilityBtn = document.getElementById('checkAvailabilityBtn');
+// let searchRoomType = document.getElementById('searchRoomType');
+// let roomTypeOption = document.getElementById('checkAvailability');
+let bookRoomBtn = document.getElementById('bookRoomBtn');
+let bookRoomBtnSection = document.getElementById('bookRoomBtnSection');
+let bookingSection = document.getElementById('bookingSection')
 
 
 //variables
 let customer, allRooms, booking, bookingRepository, allCustomers, hotel;
 
-
 //event listeners
 
-window.onload = function () {console.log("test")}
-
 window.onload = startUp();
-
-
+window.addEventListener('click', renderBookRoomView);
+window.addEventListener('click', function (event) {
+  console.log("eventTest", event.target)
+} )
+window.addEventListener('click', returnToDashboard);
+// window.addEventListener('click', getAllData)
+findMyRoomBtn.addEventListener('click', () => domUpdates.generateRoomOptions(event, date, hotel, customer))
+filterByTypeBtnSection.addEventListener('click', () => domUpdates.generateRoomsByType(event, hotel))
+// bookRoomBtn.addEventListener('click', () =>  domUpdates.bookRoom(event, allRooms))
+availableRoomsContainer.addEventListener('click', () =>  domUpdates.bookRoom(event, allRooms))
 
 
 
@@ -59,17 +81,22 @@ function startUp () {
         // console.log("hotelllll", hotel)
         makeOneCustomer(promise[3])
         // console.log("bookingsInstances", bookingsInstances)
-        console.log("oneCust", customer)
-        console.log("allRooms", allRooms)
-        console.log("bookingsRepoooo", bookingRepository)
+        // console.log("oneCust", customer)
+        // console.log("allRooms", allRooms)
+        // console.log("bookingsRepoooo", bookingRepository)
         // console.log("allCust", allCustomers)
         domUpdates.getAllDataToDom(customer, bookingRepository, allRooms, hotel);
-        // domUpdates.updateWelcomeMessage(customer);
-
-        // domUpdates.updateLifeCostInfo(customer, bookingRepository, allRooms);
-        // domUpdates.renderPastBookings(allBookings, allCustomers)
+      //  getAllData(customer, bookingRepository, allRooms, hotel)
+      console.log("customerID", customer)
+        
       })
   }
+
+  // function getAllData(event, customer, bookingRepository, allRooms, hotel) {
+  //   console.log("testHotel", hotel)
+  //   domUpdates.generateRoomOptions(event, date, hotel)
+
+  // }
 
 const makeBookingInstances = (apiBookingsData) => {
     const newBookings = apiBookingsData.bookings.map(booking => {
@@ -106,40 +133,38 @@ const makeCustomerInstances = (apiCustomersData) => {
   }
 
 
+  function show(element) {
+    element.classList.remove('hidden');
+  }
+  
+  function hide(element) {
+    element.classList.add('hidden');
+  }
+  
 
+  function renderBookRoomView(event) {
+    let eventTarget = event.target.closest('.book-new-room-btn')
 
-// let now = dayjs();
+    if(eventTarget) {
+      hide(dashboardView);
+      hide(bookNewRoomBtn);
+      show(bookRoomView);
+      show(returnToDashBtn);
+    }
 
-// console.log('This is the JavaScript entry file - your code begins here.');
-// console.log("testDate", now)
-// console.log("testNowFormat", now.format());
+  }
 
-// console.log(now.format("YYYY-MM-DD"));
+  function returnToDashboard(event) {
+    let eventTarget = event.target.closest('.return-to-dashboard')
 
-// const today = dayjs(new Date())
-// let currentDate = new Date("2021/06/11")
+    if(eventTarget) {
+      hide(bookRoomView);
+      hide(returnToDashBtn);
+      show(dashboardView);
+      show(bookNewRoomBtn);
+    }
 
+  }
 
-// let parsedDate = Date.parse(currentDate);
-
-// console.log("parsed", parsedDate)
-
-// let inputDate = new Date("2020/02/16")
-
-// let parsedInput = Date.parse(inputDate)
-
-// console.log("parsedInput", parsedInput)
-
-// const pastDate = dayjs("2018-10-22")
-// const futureDate = dayjs("2022-01-01")
-
-// console.log("today", today)
-
-// console.log("pastDate", pastDate)
-// console.log("futureDate", futureDate)
-
-// console.log(pastDate.isBefore(today))
-
-// console.log("future", futureDate.isBefore(today))
 
  
