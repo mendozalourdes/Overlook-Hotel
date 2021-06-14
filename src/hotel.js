@@ -6,6 +6,7 @@ class Hotel {
     }
 
     getAvailableRoomByDate(date) {
+
        const findDateMatches = this.bookings.bookings.reduce((acc, booking) => {
 
             if (date === booking.date & !acc.includes(booking.roomNumber)) {
