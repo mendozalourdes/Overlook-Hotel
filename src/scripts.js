@@ -217,7 +217,7 @@ const makeCustomerInstances = (apiCustomersData) => {
   }
   
 
-  function renderBookRoomView(event) {
+function renderBookRoomView(event) {
     let eventTarget = event.target.closest('.book-new-room-btn')
 
     if(eventTarget) {

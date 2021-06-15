@@ -1,3 +1,4 @@
+
 let dayjs = require("dayjs");
 
 let modal = document.getElementById("myModal");
@@ -9,6 +10,16 @@ let domUpdates = {
     availableRoomsContainer.innerHTML += `
         <p class="congratulations-message" id="congratulationsMessage"> Congratulations on your new booking!</p>
         `;
+
+        window.setTimeout(domUpdates.renderBookingViewAgain, 2000)
+
+  },
+
+  renderBookingViewAgain() {
+    domUpdates.hide(filterByTypeContainer);
+    domUpdates.show(calendarFindSection);
+    domUpdates.hide(emptyContainer)
+    availableRoomsContainer.innerHTML = "";
   },
 
   bookingErrorMessage() {
@@ -70,7 +81,7 @@ let domUpdates = {
                   </article>
                 </article>
                 <article class="text-section flex" id="textSection">
-                  <h2 class="past-room-reservations-header"> Past Reservation ${
+                  <h2 class="past-room-reservations-header"> Reservation ${
                     i + 1
                   }:</h2>
                   <article class="text-info-box flex">
@@ -98,20 +109,15 @@ let domUpdates = {
   },
 
   generateRoomOptions(event, date, hotel, customer) {
-    // console.log("hotelTest", hotel);
-    console.log("testCustomer", customer);
     let eventTarget = event.target.closest(".find-my-room-btn");
 
     date = dayjs(bookingDateCalendar.value).format("YYYY/MM/DD");
-
-    // console.log("date", date)
-    // let availableRoomsContainer = document.getElementById('availableRoomsContainer');
     availableRoomsContainer.innerHTML = "";
     let availableRooms;
 
     if (eventTarget) {
       availableRooms = hotel.getAvailableRoomByDate(date);
-      // console.log("available", availableRooms)
+
     }
     availableRooms.forEach((room) => {
       availableRoomsContainer.innerHTML += `
@@ -129,6 +135,7 @@ let domUpdates = {
     domUpdates.show(filterByTypeContainer);
     domUpdates.hide(calendarFindSection);
   },
+
 
   generateRoomsByType(event, hotel) {
     let type;
