@@ -1,3 +1,4 @@
+
 let dayjs = require("dayjs");
 
 let modal = document.getElementById("myModal");
@@ -9,6 +10,16 @@ let domUpdates = {
     availableRoomsContainer.innerHTML += `
         <p class="congratulations-message" id="congratulationsMessage"> Congratulations on your new booking!</p>
         `;
+
+        window.setTimeout(domUpdates.renderBookingViewAgain, 2000)
+
+  },
+
+  renderBookingViewAgain() {
+    domUpdates.hide(filterByTypeContainer);
+    domUpdates.show(calendarFindSection);
+    domUpdates.hide(emptyContainer)
+    availableRoomsContainer.innerHTML = "";
   },
 
   bookingErrorMessage() {
@@ -70,7 +81,7 @@ let domUpdates = {
                   </article>
                 </article>
                 <article class="text-section flex" id="textSection">
-                  <h2 class="past-room-reservations-header"> Past Reservation ${
+                  <h2 class="past-room-reservations-header"> Reservation ${
                     i + 1
                   }:</h2>
                   <article class="text-info-box flex">
@@ -98,20 +109,15 @@ let domUpdates = {
   },
 
   generateRoomOptions(event, date, hotel, customer) {
-    // console.log("hotelTest", hotel);
-    console.log("testCustomer", customer);
     let eventTarget = event.target.closest(".find-my-room-btn");
 
     date = dayjs(bookingDateCalendar.value).format("YYYY/MM/DD");
-
-    // console.log("date", date)
-    // let availableRoomsContainer = document.getElementById('availableRoomsContainer');
     availableRoomsContainer.innerHTML = "";
     let availableRooms;
 
     if (eventTarget) {
       availableRooms = hotel.getAvailableRoomByDate(date);
-      // console.log("available", availableRooms)
+
     }
     availableRooms.forEach((room) => {
       availableRoomsContainer.innerHTML += `
@@ -130,54 +136,66 @@ let domUpdates = {
     domUpdates.hide(calendarFindSection);
   },
 
+
   generateRoomsByType(event, hotel) {
-    // let availableRoomsContainer = document.getElementById('availableRoomsContainer');
-    availableRoomsContainer.innerHTML = "";
-
     let type;
+    // let eventTarget;
+    //  = event.target.classList.contains('.filter-by-type-button-section') {
+      // console.log("testEvent", event.target);
+      // event.target.classList.contains('filter-by-type-button-section') && 
+      // if(event.target.contains("residentialSuite" || "juniorSuite" || "suite" || "singleRoom")) {
+        if(event.target.id === "residentialSuite" || event.target.id === "juniorSuite" || event.target.id === "suite" || event.target.id === "singleRoom" ) {
+          
+          availableRoomsContainer.innerHTML = "";
 
-    // let eventTarget = event.target.closest('.filter-by-type-button-section');
-    console.log("testEvent", event.target);
+
+       if (event.target.id === "residentialSuite") {
+            type = "residential suite";
+      } else if (event.target.id === "juniorSuite") {
+        type = "junior suite";
+      } else if (event.target.id === "suite") {
+        type = "suite";
+      } else if (event.target.id === "singleRoom") {
+        type = "single room";
+      }
+      console.log("typeee", type);
+  
+      let getDates = hotel.getAvailableRoomByDate(date);
+      console.log("getDates", getDates);
+      let getRoomsByType = hotel.getAvailableRoomType(type);
+      console.log("getTypes", getRoomsByType);
+   
+      getRoomsByType.forEach((room) => {
+        availableRoomsContainer.innerHTML += `
+           <section class="available-room room-details-info ${room.number}" id="${room.number}" tabindex="0" role="button" >
+              <div>
+                  <h1 class="room-choice room-available-header" id="${room.number}"> Room Number ${room.number} </h1>
+                  <p class="room-choice room-type" id="${room.number}">Room Type ${room.roomType} </p> 
+                  <p class="room-choice bed-size" id="${room.number}">Bed Size: ${room.bedSize} & Number of Beds: ${room.numBeds} </p>
+                  <p class="room-choice cost-per-night" id="${room.number}">Cost Per Night: $${room.costPerNight} </p>
+                  <p class="room-choice bidet" id="bidet">Does it have a bidet?:  ${room.bidet} </p>
+              </div>
+                  <div class="book-room-button-section">
+                      <button class="book-room-button button" id="${room.number}" type="button" name="button">Book This Room!</button>
+                  </div>
+           </section>
+  
+           `;
+      });
+  
+      domUpdates.hide(filterByTypeContainer);
+      domUpdates.hide(calendarFindSection);
+      domUpdates.show(emptyContainer)
+      // domUpdates.show(bookRoomBtnSection);
+
+  
     
-
-    if (event.target.id === "residentialSuite") {
-      type = "residential suite";
-    } else if (event.target.id === "juniorSuite") {
-      type = "junior suite";
-    } else if (event.target.id === "suite") {
-      type = "suite";
-    } else if (event.target.id === "singleRoom") {
-      type = "single room";
+     } else {
+      event.preventDefault();
     }
-    console.log("typeee", type);
 
-    let getDates = hotel.getAvailableRoomByDate(date);
-    console.log("getDates", getDates);
-    let getRoomsByType = hotel.getAvailableRoomType(type);
-    console.log("getTypes", getRoomsByType);
- 
-    getRoomsByType.forEach((room) => {
-      availableRoomsContainer.innerHTML += `
-         <section class="available-room room-details-info ${room.number}" id="${room.number}" tabindex="0" role="button" >
-            <div>
-                <h1 class="room-choice room-available-header" id="${room.number}"> Room Number ${room.number} </h1>
-                <p class="room-choice room-type" id="${room.number}">Room Type ${room.roomType} </p> 
-                <p class="room-choice bed-size" id="${room.number}">Bed Size: ${room.bedSize} & Number of Beds: ${room.numBeds} </p>
-                <p class="room-choice cost-per-night" id="${room.number}">Cost Per Night: $${room.costPerNight} </p>
-                <p class="room-choice bidet" id="bidet">Does it have a bidet?:  ${room.bidet} </p>
-            </div>
-                <div class="book-room-button-section">
-                    <button class="book-room-button button" id="${room.number}" type="button" name="button">Book This Room!</button>
-                </div>
-         </section>
 
-         `;
-    });
 
-    domUpdates.hide(filterByTypeContainer);
-    domUpdates.hide(calendarFindSection);
-    domUpdates.show(emptyContainer)
-    // domUpdates.show(bookRoomBtnSection);
   },
 };
 

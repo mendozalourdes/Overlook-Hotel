@@ -3,18 +3,13 @@ $primary-background: linear-gradient(to right, #7f53ac 0, #657ced 100%);
 
 
 body {
-  background: $primary-background;
-}
-
-
-
-body {
   font-family: "Verdana", sans-serif;
   padding: 0;
   margin: 5px;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   font-size: .5em;
-
+  background: $primary-background;
+  height: 100vh;
 }
 .button {
 background: plum;
@@ -73,6 +68,13 @@ font-weight: bold;
   height: 140vh;
 }
 
+.available-rooms-container {
+  border: 5px solid purple;
+  overflow-y: scroll;
+  height: 107vh;
+
+}
+
 .room-options-container2 {
   display: flex;
   flex-direction: row;
@@ -81,13 +83,15 @@ font-weight: bold;
 }
 
 .room-options-container {
-  width: 100vw;
+  width: 50vw;
 }
 
 .book-room-view {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
+
 }
 
 .booking-form {

@@ -1,6 +1,9 @@
 import domUpdates from "./domUpdates";
 
-let modal = document.getElementById("myModal");
+
+import {
+  startUp
+} from './scripts';
 
 let randomNumber = Math.floor(Math.random() * 50);
 
@@ -71,6 +74,8 @@ function retrieveData() {
     })
       .then(handleError)
       .then(() => domUpdates.confirmationInfo())
+      .then(() => retrieveData())
+      .then(() => startUp())
       .then(() => console.log("You did it!"))
       .catch(err => console.error(`POST Request Error: ${err.message}`))
   }
