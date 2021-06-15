@@ -5,6 +5,7 @@ class Customer {
         this.allBookings = [],
         this.bookedRoom = false;
         this.availableRoomsByDate;
+        // this.username = `customer${customer.id}`
     }
 
   
@@ -62,7 +63,6 @@ class Customer {
 
        return total
         }, 0)
-            // console.log("toFixed", Number.parseFloat(getCost).toFixed(2))
         return Number(getCost.toFixed(2))
     }
     // Number(x.toFixed(2));

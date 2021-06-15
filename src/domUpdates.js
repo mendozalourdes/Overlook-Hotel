@@ -34,15 +34,11 @@ let domUpdates = {
       bookingRepository,
       allRooms
     );
-    // domUpdates.generateRoomOptions(event, date, hotel)
   },
 
   updateWelcomeMessage(customer) {
     let firstName = customer.name.split(" ")[0];
-    console.log("pageTitle", pageTitle)
     pageTitle.innerHTML = `Welcome to Overlook Hotel, ${firstName}!`;
-    console.log(    pageTitle.innerHTML)
-
   },
 
   updateLifeCostInfo(customer, bookingRepository, allRooms) {

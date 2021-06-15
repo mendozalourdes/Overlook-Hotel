@@ -59,44 +59,80 @@ const loginForm = document.getElementById("login-form");
 const loginButton = document.getElementById("login-form-submit");
 const loginErrorMsg = document.getElementById("login-error-msg");
 
-loginButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    const username = loginForm.username.value;
-    const password = loginForm.password.value;
 
-    if (username === "user" && password === "overlook2021") {
-        alert("You have successfully logged in.");
-        // location.reload();
-        domUpdates.hide(logInPageView)
-        domUpdates.show(dashboardView);
-        domUpdates.hide(tempHeading);
-        domUpdates.show(mainHeadingContainer);
-        startUp();
-
-    } else {
-        loginErrorMsg.style.opacity = 1;
-    }
-})
-
-
-
-//variables
-let customer, allRooms, booking, bookingRepository, allCustomers, hotel, roomNum;
-
-//event listeners
-
- 
-
-// window.onload = startUp();
+  
+  //variables
+  let customer, allRooms, booking, bookingRepository, allCustomers, hotel, roomNum, customerPassword, customerUsername;
+  
+  //event listeners
+  
+  
+window.onload = startUp();
 window.addEventListener('click', renderBookRoomView);
 window.addEventListener('click', function (event) {
   console.log("eventTest", event.target)
 } )
 window.addEventListener('click', returnToDashboard);
-// window.addEventListener('click', getAllData)
 findMyRoomBtn.addEventListener('click', () => domUpdates.generateRoomOptions(event, date, hotel, customer))
 filterByTypeBtnSection.addEventListener('click', () => domUpdates.generateRoomsByType(event, hotel))
 availableRoomsContainer.addEventListener('click', () =>  bookRoom(event))
+loginButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    logInUser();
+})
+
+
+function logInUser(){
+  let customerID = determineUsername();
+  customerUsername = loginForm.username.value;
+  customerPassword = loginForm.password.value;
+
+  console.log("customerIDDDDD", customerID)
+
+ if (customerUsername === `customer${customerID}` && customerPassword === "overlook2021") {
+     alert("You have successfully logged in.");
+     // location.reload();
+     domUpdates.hide(logInPageView)
+     domUpdates.show(dashboardView);
+     domUpdates.hide(tempHeading);
+     domUpdates.show(mainHeadingContainer);
+      apiCalls.fetchOneCustomer(customerID);
+      getCustomerFromLogIn(customerID)
+
+ } else {
+     loginErrorMsg.style.opacity = 1;
+ }
+}
+
+
+
+function determineUsername () {
+
+  customerUsername = loginForm.username.value;
+  let stringID;
+  let customerID;
+
+  if (customerUsername.length === 9) {
+    stringID = customerUsername.slice(-1)
+    customerID = parseInt(stringID)
+  } else {
+    stringID = customerUsername.slice(-2)
+    customerID = parseInt(stringID)
+  }
+console.log("allllll", allCustomers)
+  let foundCustomer = allCustomers.find(customer => customer.id === customerID)
+    console.log("foundCust", foundCustomer)
+  console.log("customerID", customerID)
+
+  if (foundCustomer) {
+    // apiCalls.fetchOneCustomer(customerID);
+    return customerID
+  } else {
+    loginErrorMsg.style.opacity = 1;
+  }
+
+}
+
 
 
 function startUp () {
@@ -110,24 +146,31 @@ function startUp () {
         allRooms = makeRoomsInstances(promise[2])
         makeHotel(bookingRepository, allRooms)
         // console.log("hotelllll", hotel)
-        makeOneCustomer(promise[3])
         // console.log("bookingsInstances", bookingsInstances)
         // console.log("oneCust", customer)
         // console.log("allRooms", allRooms)
         // console.log("bookingsRepoooo", bookingRepository)
         // console.log("allCust", allCustomers)
-        domUpdates.getAllDataToDom(customer, bookingRepository, allRooms, hotel);
+        // domUpdates.getAllDataToDom(customer, bookingRepository, allRooms, hotel);
       //  getAllData(customer, bookingRepository, allRooms, hotel)
-      console.log("customerID", customer)
+      // console.log("customerID", customer)
         
       })
   }
 
-  // function getAllData(event, customer, bookingRepository, allRooms, hotel) {
-  //   console.log("testHotel", hotel)
-  //   domUpdates.generateRoomOptions(event, date, hotel)
+function getCustomerFromLogIn(customerID) {
+  apiCalls.retrieveOneCustomerData(customerID)
+  .then((promise) => {
+    makeOneCustomer(promise[0])
+    console.log("amIACustomer", customer)
+    domUpdates.getAllDataToDom(customer, bookingRepository, allRooms, hotel);
+  })
 
-  // }
+  
+
+
+}
+  
 
 const makeBookingInstances = (apiBookingsData) => {
     const newBookings = apiBookingsData.bookings.map(booking => {
@@ -153,7 +196,6 @@ const makeCustomerInstances = (apiCustomersData) => {
   }
     
   function makeOneCustomer(apiCustomerData) {
-    // let randomNumber = Math.floor(Math.random() * apiCustomerData.customers.length);
     customer = new Customer(apiCustomerData);
 
   }
