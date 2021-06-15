@@ -63,7 +63,7 @@ let domUpdates = {
     myBookings.forEach((booking, i) => {
       // console.log("booking", booking)
       pastRoomsContainer.innerHTML += `
-                <section class="room-info-container past-bookings-info room-cards" id="pastBookingsInfo">
+                <section class="room-info-container room-details-info past-bookings-info room-cards" id="pastBookingsInfo">
                     <article class="image-section">
                   <article class="image-container">
                     <img class="residential-suite image" id="residentialSuiteImage" alt="residential-suite-room"
@@ -116,12 +116,12 @@ let domUpdates = {
     }
     availableRooms.forEach((room) => {
       availableRoomsContainer.innerHTML += `
-         <section class="available-room ${room.number}" id="${room.number}" tabindex=0  role="button">
-                <h1 class="room-available-header" id="${room.number}"> Room Number ${room.number} </h1>
-                <p class="room-type" id="${room.number}">Room Type ${room.roomType} </p> 
-                <p class="bed-size" id="${room.number}">Bed Size: ${room.bedSize} & Number of Beds: ${room.numBeds} </p>
-                <p class="cost-per-night" id="${room.number}">Cost Per Night: $${room.costPerNight} </p>
-                <p class="bidet" id="bidet">Does it have a bidet?:  ${room.bidet} </p>
+         <section class="available-room room-details-info ${room.number}" id="${room.number}" tabindex=0  role="button">
+                <h1 class="room-choice room-available-header" id="${room.number}"> Room Number ${room.number} </h1>
+                <p class="room-choice room-type" id="${room.number}">Room Type ${room.roomType} </p> 
+                <p class=" room-choice  bed-size" id="${room.number}">Bed Size: ${room.bedSize} & Number of Beds: ${room.numBeds} </p>
+                <p class="room-choice cost-per-night" id="${room.number}">Cost Per Night: $${room.costPerNight} </p>
+                <p class="room-choice bidet" id="bidet">Does it have a bidet?:  ${room.bidet} </p>
         </section>
 
          `;
@@ -159,12 +159,17 @@ let domUpdates = {
  
     getRoomsByType.forEach((room) => {
       availableRoomsContainer.innerHTML += `
-         <section class="room-choice available-room ${room.number}" id="${room.number}" tabindex="0" role="button" >
+         <section class="available-room room-details-info ${room.number}" id="${room.number}" tabindex="0" role="button" >
+            <div>
                 <h1 class="room-choice room-available-header" id="${room.number}"> Room Number ${room.number} </h1>
                 <p class="room-choice room-type" id="${room.number}">Room Type ${room.roomType} </p> 
                 <p class="room-choice bed-size" id="${room.number}">Bed Size: ${room.bedSize} & Number of Beds: ${room.numBeds} </p>
                 <p class="room-choice cost-per-night" id="${room.number}">Cost Per Night: $${room.costPerNight} </p>
                 <p class="room-choice bidet" id="bidet">Does it have a bidet?:  ${room.bidet} </p>
+            </div>
+                <div class="book-room-button-section">
+                    <button class="book-room-button button" id="${room.number}" type="button" name="button">Book This Room!</button>
+                </div>
          </section>
 
          `;
@@ -174,32 +179,6 @@ let domUpdates = {
     domUpdates.hide(calendarFindSection);
     domUpdates.show(emptyContainer)
     // domUpdates.show(bookRoomBtnSection);
-  },
-
-  chooseRoom(event, allRooms, customer) {
-    if (event.target.classList.contains("room-choice")) {
-      let chosenRoomNumber = parseInt(event.target.id);
-
-      availableRoomsContainer.innerHTML = "";
-      let chosenRoom = allRooms.find(
-        (room) => room.number === chosenRoomNumber
-      );
-      // console.log("findRoom", chosenRoom)
-
-      availableRoomsContainer.innerHTML += `
-        <div class="book-room-button-section " id="${chosenRoom.number}">
-            <button class="book-room-button button" id="${chosenRoom.number}" type="button" name="button">Book This Room!</button>
-        </div>
-        <section class=" room-choice available-room-choice ${chosenRoom.number}" id="${chosenRoom.number}">
-               <h1 class="room-choice room-available-header" id="${chosenRoom.number}"> Room Number ${chosenRoom.number} </h1>
-               <p class="room-choice room-type" id="${chosenRoom.number}">Room Type ${chosenRoom.roomType} </p> 
-               <p class="room-choice bed-size" id="${chosenRoom.number}">Bed Size: ${chosenRoom.bedSize} & Number of Beds: ${chosenRoom.numBeds} </p>
-               <p class="room-choice cost-per-night" id="${chosenRoom.number}">Cost Per Night: $${chosenRoom.costPerNight} </p>
-               <p class="room-choice bidet" id="bidet">Does it have a bidet?:  ${chosenRoom.bidet} </p>
-        </section>
-
-        `;
-    }
   },
 };
 

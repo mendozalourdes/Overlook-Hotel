@@ -291,6 +291,25 @@ body {
     }
 
 
+.room-details-info {
+  border: 1px solid purple;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-room-button-section {
+  // border: 1px solid purple;
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.room-choice {
+  font-size: 1.25em;
+}
+
+
 .hidden {
   display: none;
 }

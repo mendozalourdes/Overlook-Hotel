@@ -68,35 +68,7 @@ window.addEventListener('click', returnToDashboard);
 // window.addEventListener('click', getAllData)
 findMyRoomBtn.addEventListener('click', () => domUpdates.generateRoomOptions(event, date, hotel, customer))
 filterByTypeBtnSection.addEventListener('click', () => domUpdates.generateRoomsByType(event, hotel))
-availableRoomsContainer.addEventListener('click', () =>  domUpdates.chooseRoom(event, allRooms, customer))
 availableRoomsContainer.addEventListener('click', () =>  bookRoom(event))
- 
-
-availableRoomsContainer.addEventListener("keydown", () => {
-  if (event.key === "Enter") {
-    bookRoom(event)
-  }
-});
-
-
-
-function bookRoom(event) {
-  if (event.target.classList.contains('book-room-button')) {
-      let roomNum = parseInt(event.target.id)
-      let date = dayjs(bookingDateCalendar.value).format('YYYY/MM/DD');
-      let customerBooking = customer
-      // roomNum = chosenRoom.number
-      console.log("chosen", roomNum)
-      console.log("dateVal", date)
-      console.log("custttttID", customerBooking.id)
-      apiCalls.bookNewRoom(customerBooking.id, date, roomNum)
-
-  } else {
-    event.preventDefault();
-  }
-
-
-}
 
 
 function startUp () {
@@ -198,4 +170,20 @@ const makeCustomerInstances = (apiCustomersData) => {
   }
 
 
- 
+  function bookRoom(event) {
+    if (event.target.classList.contains('book-room-button')) {
+        let roomNum = parseInt(event.target.id)
+        let date = dayjs(bookingDateCalendar.value).format('YYYY/MM/DD');
+        let customerBooking = customer
+        // roomNum = chosenRoom.number
+        console.log("chosen", roomNum)
+        console.log("dateVal", date)
+        console.log("custttttID", customerBooking.id)
+        apiCalls.bookNewRoom(customerBooking.id, date, roomNum)
+  
+    } else {
+      event.preventDefault();
+    }
+  
+  
+  }
