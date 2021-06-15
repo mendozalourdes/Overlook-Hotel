@@ -59,9 +59,9 @@ let domUpdates = {
     // console.log("myBookings", myBookings)
     pastRoomsContainer.innerHTML = "";
 
-    // console.log("mybookingssss", myBookings)
+
     myBookings.forEach((booking, i) => {
-      // console.log("booking", booking)
+
       pastRoomsContainer.innerHTML += `
                 <section class="room-info-container room-details-info past-bookings-info room-cards" id="pastBookingsInfo">
                     <article class="image-section">
