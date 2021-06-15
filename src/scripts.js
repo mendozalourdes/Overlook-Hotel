@@ -1,9 +1,8 @@
 // This is the JavaScript entry file - your code begins here
 // Do not delete or rename this file ********
 
-// An example of how you tell webpack to use a CSS (SCSS) file
-// import './css/base.scss';
 
+//imports
 import './css/index.scss';
 let dayjs = require('dayjs');
 import apiCalls from './apiCalls'
@@ -14,8 +13,7 @@ import Booking from './booking';
 import Hotel from './hotel';
 import domUpdates from './domUpdates';
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-// import './images/turing-logo.png'
+//image imports
 import './images/bed.jpg'
 import './images/hotel-bell.jpg'
 import './images/hotel.jpg'
@@ -29,7 +27,6 @@ import './images/suite.jpg'
 let pageTitle = document.getElementById('pageTitle');
 let totalCostInfo = document.getElementById('totalCostInfo');
 let pastRoomsContainer = document.getElementById('pastRoomsContainer');
-let navContainer = document.getElementById('navContainer');
 let bookRoomView = document.getElementById('bookRoomView');
 let dashboardView = document.getElementById('dashboardView');
 let bookNewRoomBtn = document.getElementById('bookNewRoomBtn');
@@ -41,16 +38,9 @@ let bookingDateCalendar = document.getElementById('bookingDateCalendar');
 let filterByTypeContainer = document.getElementById('filterByTypeContainer');
 let calendarFindSection = document.getElementById('calendarFindSection');
 let filterByTypeBtnSection = document.getElementById('filter-by-type-button-section');
-// let findMyRoomBtn = document.getElementById('findMyRoomBtn')
-// let checkAvailabilityBtn = document.getElementById('checkAvailabilityBtn');
-// let searchRoomType = document.getElementById('searchRoomType');
-// let roomTypeOption = document.getElementById('checkAvailability');
-// let bookRoomBtn = document.getElementById('bookRoomBtn');
 let bookRoomBtnSection = document.getElementById('bookRoomBtnSection');
 let bookingSection = document.getElementById('bookingSection');
 let bookRoomBtn = document.querySelector('book-room-button');
-// let availableRoomsContainer = document.getElementById('availableRoomsContainer');
-// let congratulationsMessage = document.getElementById('congratulationsMessage')
 let emptyContainer = document.getElementById('emptyContainer')
 let mainHeadingContainer = document.getElementById('mainHeadingContainer');
 let logInPageView = document.getElementById('logInPageView')
@@ -60,13 +50,20 @@ const loginButton = document.getElementById("login-form-submit");
 const loginErrorMsg = document.getElementById("login-error-msg");
 
 
+
+// let findMyRoomBtn = document.getElementById('findMyRoomBtn')
+// let checkAvailabilityBtn = document.getElementById('checkAvailabilityBtn');
+// let searchRoomType = document.getElementById('searchRoomType');
+// let roomTypeOption = document.getElementById('checkAvailability');
+// let bookRoomBtn = document.getElementById('bookRoomBtn');
+// let availableRoomsContainer = document.getElementById('availableRoomsContainer');
+// let congratulationsMessage = document.getElementById('congratulationsMessage')
   
   //variables
   let customer, allRooms, booking, bookingRepository, allCustomers, hotel, roomNum, customerPassword, customerUsername;
   
   //event listeners
-  
-  
+
 window.onload = startUp();
 window.addEventListener('click', renderBookRoomView);
 window.addEventListener('click', function (event) {
@@ -80,6 +77,14 @@ loginButton.addEventListener("click", (e) => {
     e.preventDefault();
     logInUser();
 })
+
+// mainHeadingContainer.addEventListener('click', () => renderBookingsAgain(event))
+
+// function renderBookingsAgain(event) {
+//   if(event.target.id === 'returnToDashBtn') {
+//     domUpdates.renderPastandFutureBookings(customer, bookingRepository, allRooms)
+//   } 
+// }
 
 
 function logInUser(){
@@ -135,7 +140,7 @@ console.log("allllll", allCustomers)
 
 
 
-function startUp () {
+export function startUp () {
     apiCalls.retrieveData()
       .then((promise) => {
         // console.log("promise1", promise[1])
@@ -165,9 +170,6 @@ function getCustomerFromLogIn(customerID) {
     console.log("amIACustomer", customer)
     domUpdates.getAllDataToDom(customer, bookingRepository, allRooms, hotel);
   })
-
-  
-
 
 }
   
@@ -235,6 +237,7 @@ const makeCustomerInstances = (apiCustomersData) => {
       hide(returnToDashBtn);
       show(dashboardView);
       show(bookNewRoomBtn);
+      domUpdates.renderPastandFutureBookings(customer, bookingRepository, allRooms)
     }
 
   }
@@ -250,7 +253,8 @@ const makeCustomerInstances = (apiCustomersData) => {
         console.log("dateVal", date)
         console.log("custttttID", customerBooking.id)
         apiCalls.bookNewRoom(customerBooking.id, date, roomNum)
-  
+        // domUpdates.renderPastandFutureBookings(customer, bookingRepository, allRooms)
+        // console.log("customerRooms", customer)
     } else {
       event.preventDefault();
     }
