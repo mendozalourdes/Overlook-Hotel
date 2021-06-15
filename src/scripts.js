@@ -51,11 +51,13 @@ let bookingSection = document.getElementById('bookingSection');
 let bookRoomBtn = document.querySelector('book-room-button');
 // let availableRoomsContainer = document.getElementById('availableRoomsContainer');
 // let congratulationsMessage = document.getElementById('congratulationsMessage')
-
+let emptyContainer = document.getElementById('emptyContainer')
 //variables
 let customer, allRooms, booking, bookingRepository, allCustomers, hotel, roomNum;
 
 //event listeners
+
+ 
 
 window.onload = startUp();
 window.addEventListener('click', renderBookRoomView);
@@ -68,7 +70,15 @@ findMyRoomBtn.addEventListener('click', () => domUpdates.generateRoomOptions(eve
 filterByTypeBtnSection.addEventListener('click', () => domUpdates.generateRoomsByType(event, hotel))
 availableRoomsContainer.addEventListener('click', () =>  domUpdates.chooseRoom(event, allRooms, customer))
 availableRoomsContainer.addEventListener('click', () =>  bookRoom(event))
-// closeModal.addEventListener('click', () => domUpdates.hideModal)
+ 
+
+availableRoomsContainer.addEventListener("keydown", () => {
+  if (event.key === "Enter") {
+    bookRoom(event)
+  }
+});
+
+
 
 function bookRoom(event) {
   if (event.target.classList.contains('book-room-button')) {

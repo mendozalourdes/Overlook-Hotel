@@ -1,6 +1,6 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-;
+$primary-background: linear-gradient(to right, #7f53ac 0, #657ced 100%);
+
 
 body {
   background: $primary-background;
@@ -23,7 +23,7 @@ text-transform: uppercase;
 border-radius: 15%;
 padding: .5em;
 font-weight: bold;
-font-size: 1em;
+font-size: .75em;
 height: 20vh;
 width: 15vw;
 }
@@ -109,7 +109,7 @@ font-weight: bold;
   font-weight: bold;
   // font-size: 1em;
   height: 5vh;
-  width: 10vw;
+  width: 6vw;
   }
 
 .book-room-button:hover {
@@ -122,13 +122,13 @@ cursor: pointer;
 .past-room-card-container {
   height: 300vh;
   width: 203vh;
-  // display: grid;   
-  // grid-template-columns: repeat(1, 1fr);
-  // grid-template-rows: repeat(8, 1.5fr);
-  // grid-gap: 3%;
-  // grid-column-gap: 0%;
+  display: grid;   
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(8, 1.5fr);
+  grid-gap: 3%;
+  grid-column-gap: 0%;
   // height: 105vh;
-  // margin-left: 2em;
+  margin-left: 2em;
  
 }
 
@@ -138,17 +138,13 @@ background-color: #EEEEEE;
 }
 
 
-.header-nav-container,
+.nav-section,
 .header1 {
   display: flex;
-  flex-direction: column;
-  background-color: rgb(134, 17, 17);
-  color: white;
+  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   height: 15vh;
-  padding-top: 2.5em;
-  font-size: 1.25em;
   
 }
 
@@ -183,7 +179,7 @@ height: 375vh;
 
 .card-container {
 display: grid;   
-grid-template-columns: repeat(1, 1fr);
+grid-template-columns: repeat(4, 1fr);
 grid-template-rows: repeat(8, 1.5fr);
 grid-gap: 3%;
 grid-column-gap: 0%;
@@ -204,7 +200,7 @@ margin-top: 1.5em;
 .text-info-box {
 background-color: #d6d3d3e6;
 border-radius: .5em;
-padding: 1em;
+padding: .5em;
 }
 
 .image-container {
@@ -227,68 +223,19 @@ box-shadow: 7px 2px 20px 0px;
 padding: 10px 10px 10px 10px;
 background-color: white;
 width: 50vw;
-height: 55vh;
+height: 64vh;
 border-radius: 1em;
 margin-left: 20%;
 font-size: 1.75em;
+margin-top: 8%;
 }
 
-.modal-window {
-  position: fixed;
-  background-color: rgba(255, 255, 255, 0.25);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 999;
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s;
-  &:target {
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
-  }
-  & > div {
-    width: 400px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 2em;
-    background: white;
-  }
-  header {
-    font-weight: bold;
-  }
-  h1 {
-    font-size: 150%;
-    margin: 0 0 15px;
-  }
+.booking-section-header-container, 
+.room-option-header-container {
+  // border: 1px solid purple;
+  padding: 2%;
 }
 
-.modal-close {
-  color: #aaa;
-  line-height: 50px;
-  font-size: 80%;
-  position: absolute;
-  right: 0;
-  text-align: center;
-  top: 0;
-  width: 70px;
-  text-decoration: none;
-  &:hover {
-    color: black;
-  }
-}
-
-/* Demo Styles */
-
-html,
-body {
-  height: 100%;
-}
 
 html {
   font-size: 18px;
@@ -299,20 +246,49 @@ body {
   font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-weight: 600;
-  background-image: linear-gradient(to right, #7f53ac 0, #657ced 100%);
   color: black;
 }
 
-a {
-  color: inherit;
-}
 
 .congratulations-message {
   font-size: 4em;
   
 }
 
+.calender-and-find-section,
+.filter-by-room-type-container, 
+.test-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  border: 5px solid purple;
+  padding: 3%; 
+}
 
+.filter-by-type-button-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  // border: 1px solid purple;
+  width: 33vw;
+}
+
+
+.calendar {
+  border: 1px solid purple;
+  width: 8vw;
+  height: 3vh;
+  font-size: 1em;
+}
+
+  .calendar:hover {
+    // color: purple;
+    // background-color: gray;
+    // font-weight: bold;
+    cursor: pointer;
+    }
 
 
 .hidden {
@@ -364,7 +340,7 @@ body{
 .card-container {
   display: grid;   
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1.5fr);
+  grid-template-rows: repeat(9, 1.5fr);
   grid-gap: 3%;
   grid-column-gap: 0%;
   height: 105vh;
@@ -387,7 +363,7 @@ body{
   padding-top: 3em;
 }
 
-.header-nav-container {
+.nav-section {
   padding-top: 1em;
 }
 .icon {

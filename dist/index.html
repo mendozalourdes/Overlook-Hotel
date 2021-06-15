@@ -14,50 +14,59 @@
     <h1 class="page-title main-title" id="pageTitle"> Welcome to Overlook Hotel, Lourdes! </h1>
     <nav class="nav-section">
       <img src="./images/hotel.jpg" alt="hotel logo" height="100px" width="100px">
-      <button class="book-new-room-btn button" id="bookNewRoomBtn" type="button" name="button">Book New Room</button>
-      <!-- <img src="./images/bed.jpg" alt="bed to book new room" class="icon hotel-bed"> -->
-      <button class=" return-to-dashboard button hidden" id="returnToDashBtn" type="button" name="button">Return to Dashboard</button>
+      <section class="button-section">
+        <button class="book-new-room-btn button" id="bookNewRoomBtn" type="button" name="button">Book New Room</button>
+        <button class=" return-to-dashboard button hidden" id="returnToDashBtn" type="button" name="button">Return to
+          Dashboard</button>
+      </section>
     </nav>
-    </div>
-    <div class="nav-container" id="navContainer">
-      <!-- <button class="book-new-room-btn button" id="bookNewRoomBtn" type="button" name="button"><img 
+  </div>
+  <div class="nav-container" id="navContainer">
+    <!-- <button class="book-new-room-btn button" id="bookNewRoomBtn" type="button" name="button"><img 
         src="./images/bed.jpg" alt="bed to book new room" class="icon hotel-bed">Book New Room</button> -->
-    </div>
-    
+  </div>
+
 </header>
 
 <body>
   <section class="log-in page-view hidden" id="logInPageView">
-    <label for="userName" class="user-name-label">Username</label>
-    <input id="userNameInput" class="user-name input" type="text" autocomplete="off" placeholder="Username..."></input>  
+    <label type="form" for="userName" class="user-name-label">Username</label>
+    <input id="userNameInput" class="user-name input" type="text" autocomplete="off" placeholder="Username..."></input>
     <label for="Password" class="password-label">Password</label>
-    <input id="passwordInput" class="password input" type="text" autocomplete="off" placeholder="Password..."></input>  
+    <input id="passwordInput" class="password input" type="text" autocomplete="off" placeholder="Password..."></input>
   </section>
 
- <!-- Past Trips View --> 
+  <!-- Past Trips View -->
   <section class="dashboard-room-view" id="dashboardView">
     <section class="info-containers">
-      <div class="reminisce-container">
-        <h2 class="past-trips-header" id="pastTripsHeader"> Reminisce about your past trips....</h2>
-      </div>
-      <div class="total-cost-container">
-        <h2 class="total-cost-info" id="totalCostInfo"> Lifetime Cost: </h2>
+
+      <article class="text-section flex reminisce-container" id="textSection">
+        <article class="text-info-box flex">
+          <h1 class="room-details"> Reminisce about your past trips....</h1>
+        </article>
+      </article>
+
+      <article class="text-section flex reminisce-container" id="textSection">
+        <article class="text-info-box flex">
+          <h2 class="total-cost-info" id="totalCostInfo"> Lifetime Cost: </h2>
         <h3 class="total-memories-info" id="totalMemoriesInfo"> Lifetime Memories: Too Many To Count</h3>
-      </div>
+        </article>
+      </article>
+
     </section>
     <div class="dashboard-container container" id="dashboardContainer">
       <section class="past-room-card-container" id="pastRoomsContainer">
         <section class="past-bookings-info" id="pastBookingsInfo">
-          <p class="room-number" id="roomNumber">Room Number:  </p>
-          <p class="date" id="date">Date:  </p>
-          <p class="room-type" id="roomType">Room Type:  </p>
-          <p class="bed-size" id="bedSize">Bed Size:  </p>
-          <p class="cost-per-night" id="costPerNight">Cost Per Night:  </p>
+          <p class="room-number" id="roomNumber">Room Number: </p>
+          <p class="date" id="date">Date: </p>
+          <p class="room-type" id="roomType">Room Type: </p>
+          <p class="bed-size" id="bedSize">Bed Size: </p>
+          <p class="cost-per-night" id="costPerNight">Cost Per Night: </p>
           <img class="suite image" id="suiteImage" alt="suite-room" src="./images/suite.jpg">
         </section>
 
-            <!--  THIS WILL BE DYNAMICALLY ADDED B/C IT DEPENDS ON HOW MANY BOOKINGS PEOPLE HAVE. -->
-            <!-- <section class="past-trip-info-container" id="pastTrip">
+        <!--  THIS WILL BE DYNAMICALLY ADDED B/C IT DEPENDS ON HOW MANY BOOKINGS PEOPLE HAVE. -->
+        <!-- <section class="past-trip-info-container" id="pastTrip">
         -----------i might not want an image in here. maybe it's just a card with info in it?
               <article class="image-section">
                 <article class="image-container">
@@ -76,15 +85,18 @@
     </div>
   </section>
 
-<!-- Book Room View -->
+  <!-- Book Room View -->
 
 
   <section class="book-room-view hidden " id="bookRoomView">
- 
+
     <div class="room-options-container">
-      <div class="room-option-header-container">
-        <h2 class="view-room-options-header" id="viewRoomOptionsHeader"> Room Options</h2>
-      </div>
+
+      <article class="text-section flex room-option-header-container" id="textSection">
+        <article class="text-info-box flex">
+          <h2 class="view-room-options-header" id="viewRoomOptionsHeader"> Room Type Options: </h2>
+        </article>
+      </article>
       <div class="room-options-container2 container" id="roomOptionsContainer">
         <section class="room-cards container" id="roomCards">
           <!-- Residential Suite -->
@@ -98,7 +110,7 @@
             <article class="text-section flex" id="textSection">
               <h2 class="room-type-name" id="roomTypeName">Residential Suite</h2>
               <article class="text-info-box flex">
-                <p class="room-details"> Details about each room go right here.</p>
+                <p class="room-details"> Elegance. Your residential suite will allow you to experience the comforts of home with the Overlook Hotel luxe feel.</p>
               </article>
             </article>
           </section>
@@ -150,50 +162,44 @@
       </div>
     </div>
     <div class="booking-section" id="bookingSection">
-      <div class="booking-section-header-container">
-        <h2 class="booking-header" id="bookingHeader"> Book New Room</h2>
-      </div>
+
+      <article class="text-section flex booking-section-header-container" id="textSection">
+        <article class="text-info-box flex">
+          <h2 class="booking-header" id="bookingHeader"> Book New Room </h2>
+        </article>
+      </article>
 
       <section class="booking-form container" id="bookingFormContainer">
 
-        <!-- <div id="modalContainer" class="modal-container hidden">
-          <div class="interior" id="openModal">
-            <a class="btn" href="#open-modal">Congratulations! Your booking was successful</a>
-          </div>
-          <div id="open-modal" class="modal-window">
-            <div>
-              <a href="#" title="Close" id="closeModal" class="modal-close">Close</a>
-              <h1>Congratulations! Your booking was successful</h1>
-              <!-- <div>A CSS-only modal based on the :target pseudo-class. Hope you find it helpful.</div> -->
-              <!-- <div><small>Check out</small></div> -->
-              <!-- <a href="https://aminoeditor.com" target="_blank">👉 Amino: Live CSS Editor for Chrome</div> -->
-              <!-- </div> -->
-            <!-- </div> -->
-          <!-- </div> --> 
-          
-
         <div class="calender-and-find-section" id="calendarFindSection">
-          <label for="start">I want to book a room on this date:</label>
-          <input type="date" id="bookingDateCalendar" name="trip-start"
-             value="2021-06-01"
-             min="2021-06-01" max="2024-12-31" required>
-             <!-- <input type="date" id="arrivalDate" value="2021-01-01" min="2021-01-01" name="arrive" required> -->
-             <button class="find-my-room-btn book-room-button" id="findMyRoomBtn" type="button" name="button">Find My Room</button>
+          <h1 for="start">I want to book a room on this date:</h1>
+          <input type="date" class="calendar" id="bookingDateCalendar" name="trip-start" value="2021-06-01" min="2021-06-01"
+            max="2024-12-31" required>
+          <!-- <input type="date" id="arrivalDate" value="2021-01-01" min="2021-01-01" name="arrive" required> -->
+          <button class="find-my-room-btn book-room-button" id="findMyRoomBtn" type="button" name="button">Find My
+            Room</button>
 
+        </div>
+        <div class="test-container hidden" id="emptyContainer">
+          <h1 class="select-room-heading">Select your preferred room:</h1>
         </div>
         <div class="filter-by-room-type-container hidden" id="filterByTypeContainer">
           <h2 class="filter-roomType-header" id="filterRoomTypeHeader"> Filter By Room Type:</h2>
 
           <div class="filter-by-type-button-section" id="filter-by-type-button-section">
-            <button class="residential-suite-button button" id="residentialSuite" type="button" name="button">Residential Suite</button>
-            <button class="junior-suite-button button" id="juniorSuite" type="button" name="button">Junior Suite</button>
+            <button class="residential-suite-button button" id="residentialSuite" type="button"
+              name="button">Residential Suite</button>
+            <button class="junior-suite-button button" id="juniorSuite" type="button" name="button">Junior
+              Suite</button>
             <button class="suite-button button" id="suite" type="button" name="button"> Suite</button>
             <button class="single-room-button button" id="singleRoom" type="button" name="button">Single Room</button>
           </div>
         </div>
         <div class="book-room-button-section" id="bookRoomBtnSection">
-          <button class="book-room-button button hidden" id="bookRoomBtn" type="button" name="button">Book This Room!</button>
-          <p class="congratulations-message hidden" id="congratulationsMessage"> Congratulations on your new booking!</p>
+          <button class="book-room-button button hidden" id="bookRoomBtn" type="button" name="button">Book This
+            Room!</button>
+          <p class="congratulations-message hidden" id="congratulationsMessage"> Congratulations on your new booking!
+          </p>
         </div>
 
         <!-- this is where the calendar will go, as well as a button, and then the rooms get displayed below. -->
