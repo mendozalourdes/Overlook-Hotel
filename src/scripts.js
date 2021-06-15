@@ -49,6 +49,8 @@ const loginForm = document.getElementById("login-form");
 const loginButton = document.getElementById("login-form-submit");
 const loginErrorMsg = document.getElementById("login-error-msg");
 
+let startOverBtn = document.getElementById('startOverBtn')
+
 
 
 // let findMyRoomBtn = document.getElementById('findMyRoomBtn')
@@ -78,13 +80,14 @@ loginButton.addEventListener("click", (e) => {
     logInUser();
 })
 
-// mainHeadingContainer.addEventListener('click', () => renderBookingsAgain(event))
+window.addEventListener('click', (event) => { if(event.target.id === 'startOverBtn') {
+  domUpdates.renderBookingViewAgain()
+} else {
+  event.preventDefault();
+}
 
-// function renderBookingsAgain(event) {
-//   if(event.target.id === 'returnToDashBtn') {
-//     domUpdates.renderPastandFutureBookings(customer, bookingRepository, allRooms)
-//   } 
-// }
+})
+
 
 
 function logInUser(){
