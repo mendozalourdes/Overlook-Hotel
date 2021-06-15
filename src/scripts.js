@@ -52,6 +52,34 @@ let bookRoomBtn = document.querySelector('book-room-button');
 // let availableRoomsContainer = document.getElementById('availableRoomsContainer');
 // let congratulationsMessage = document.getElementById('congratulationsMessage')
 let emptyContainer = document.getElementById('emptyContainer')
+let mainHeadingContainer = document.getElementById('mainHeadingContainer');
+let logInPageView = document.getElementById('logInPageView')
+let tempHeading = document.getElementById('tempHeading')
+const loginForm = document.getElementById("login-form");
+const loginButton = document.getElementById("login-form-submit");
+const loginErrorMsg = document.getElementById("login-error-msg");
+
+loginButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    const username = loginForm.username.value;
+    const password = loginForm.password.value;
+
+    if (username === "user" && password === "overlook2021") {
+        alert("You have successfully logged in.");
+        // location.reload();
+        domUpdates.hide(logInPageView)
+        domUpdates.show(dashboardView);
+        domUpdates.hide(tempHeading);
+        domUpdates.show(mainHeadingContainer);
+        startUp();
+
+    } else {
+        loginErrorMsg.style.opacity = 1;
+    }
+})
+
+
+
 //variables
 let customer, allRooms, booking, bookingRepository, allCustomers, hotel, roomNum;
 
@@ -59,7 +87,7 @@ let customer, allRooms, booking, bookingRepository, allCustomers, hotel, roomNum
 
  
 
-window.onload = startUp();
+// window.onload = startUp();
 window.addEventListener('click', renderBookRoomView);
 window.addEventListener('click', function (event) {
   console.log("eventTest", event.target)

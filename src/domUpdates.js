@@ -39,7 +39,10 @@ let domUpdates = {
 
   updateWelcomeMessage(customer) {
     let firstName = customer.name.split(" ")[0];
+    console.log("pageTitle", pageTitle)
     pageTitle.innerHTML = `Welcome to Overlook Hotel, ${firstName}!`;
+    console.log(    pageTitle.innerHTML)
+
   },
 
   updateLifeCostInfo(customer, bookingRepository, allRooms) {
