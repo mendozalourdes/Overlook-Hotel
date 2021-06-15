@@ -9,9 +9,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Overlook Hotel</title>
 </head>
+<div class="main-heading-container" id="tempHeading">
+  <h1 class="page-title main-title" id="pageTitle1"> Welcome to Overlook Hotel! </h1>
+</div>
+
 <header>
-  <div class="main-heading-container">
-    <h1 class="page-title main-title" id="pageTitle"> Welcome to Overlook Hotel, Lourdes! </h1>
+  <body class="login-body">
+    <section class="log-in page-view" id="logInPageView">
+     
+      <main id="main-holder">
+        <h1 id="login-header">Login</h1>
+        
+        <div id="login-error-msg-holder">
+          <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+        </div>
+        
+        <form id="login-form">
+          <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username"maxlength = "10">
+          <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+          <input type="submit" value="Login" id="login-form-submit">
+        </form>
+      
+      </main>
+  
+    </section>
+
+  </body>
+
+
+
+
+  <div class="main-heading-container hidden" id="mainHeadingContainer">
+    <h1 class="page-title main-title" id="pageTitle"></h1>
     <nav class="nav-section">
       <img src="./images/hotel.jpg" alt="hotel logo" height="100px" width="100px">
       <section class="button-section">
@@ -29,15 +58,9 @@
 </header>
 
 <body>
-  <section class="log-in page-view hidden" id="logInPageView">
-    <label type="form" for="userName" class="user-name-label">Username</label>
-    <input id="userNameInput" class="user-name input" type="text" autocomplete="off" placeholder="Username..."></input>
-    <label for="Password" class="password-label">Password</label>
-    <input id="passwordInput" class="password input" type="text" autocomplete="off" placeholder="Password..."></input>
-  </section>
 
   <!-- Past Trips View -->
-  <section class="dashboard-room-view" id="dashboardView">
+  <section class="dashboard-room-view hidden" id="dashboardView">
     <section class="info-containers">
 
       <article class="text-section flex reminisce-container" id="textSection">

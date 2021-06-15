@@ -34,7 +34,6 @@ let domUpdates = {
       bookingRepository,
       allRooms
     );
-    // domUpdates.generateRoomOptions(event, date, hotel)
   },
 
   updateWelcomeMessage(customer) {

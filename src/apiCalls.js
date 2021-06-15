@@ -50,9 +50,12 @@ const fetchRoomsData = () => {
 }
 
 function retrieveData() {
-    return Promise.all([fetchCustomersData(), fetchBookingsData(), fetchRoomsData(), fetchOneCustomer(randomNumber)])
+    return Promise.all([fetchCustomersData(), fetchBookingsData(), fetchRoomsData()])
   }
 
+  function retrieveOneCustomerData(customerID) {
+    return Promise.all([fetchOneCustomer(customerID)])
+  }
 
   function bookNewRoom(customerID, date, roomNumber) {
     return fetch('http://localhost:3001/api/v1/bookings', {
@@ -73,7 +76,7 @@ function retrieveData() {
   }
   
   
-  export default {fetchCustomersData, fetchBookingsData, fetchRoomsData, retrieveData, bookNewRoom}
+  export default {fetchCustomersData, fetchBookingsData, fetchRoomsData, fetchOneCustomer, retrieveData, retrieveOneCustomerData, bookNewRoom}
   
 
  
