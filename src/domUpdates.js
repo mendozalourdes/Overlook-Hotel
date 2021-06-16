@@ -8,14 +8,13 @@ let domUpdates = {
         <p class="congratulations-message" id="congratulationsMessage"> Congratulations on your new booking!</p>
         `;
 
-        window.setTimeout(domUpdates.renderBookingViewAgain, 2000)
-
+    window.setTimeout(domUpdates.renderBookingViewAgain, 2000);
   },
 
   renderBookingViewAgain() {
     domUpdates.hide(filterByTypeContainer);
     domUpdates.show(calendarFindSection);
-    domUpdates.hide(emptyContainer)
+    domUpdates.hide(emptyContainer);
     availableRoomsContainer.innerHTML = "";
   },
 
@@ -50,7 +49,6 @@ let domUpdates = {
   },
 
   updateLifeCostInfo(customer, bookingRepository, allRooms) {
-
     let findBookings = customer.findAllBookings(bookingRepository, allRooms);
     let costResult = customer.getLifetimeBookingCost(
       bookingRepository,
@@ -65,7 +63,6 @@ let domUpdates = {
     pastRoomsContainer.innerHTML = "";
 
     myBookings.forEach((booking, i) => {
-
       pastRoomsContainer.innerHTML += `
                 <section class="room-info-container room-details-info past-bookings-info room-cards" id="pastBookingsInfo">
                     <article class="image-section">
@@ -111,7 +108,6 @@ let domUpdates = {
 
     if (eventTarget) {
       availableRooms = hotel.getAvailableRoomByDate(date);
-
     }
 
     if (availableRooms.length > 0) {
@@ -127,28 +123,29 @@ let domUpdates = {
   
            `;
       });
-  
+
       domUpdates.show(filterByTypeContainer);
       domUpdates.hide(calendarFindSection);
     } else {
       availableRoomsContainer.innerHTML = `              
        <h1 class="apology-message"> We are so very sorry, but there are no rooms available given your criteria. Please try different options. </h1>
-      `
+      `;
     }
-
-
   },
-
 
   generateRoomsByType(event, hotel) {
     let type;
 
-        if(event.target.id === "residentialSuite" || event.target.id === "juniorSuite" || event.target.id === "suite" || event.target.id === "singleRoom" ) {
-          
-          availableRoomsContainer.innerHTML = "";
+    if (
+      event.target.id === "residentialSuite" ||
+      event.target.id === "juniorSuite" ||
+      event.target.id === "suite" ||
+      event.target.id === "singleRoom"
+    ) {
+      availableRoomsContainer.innerHTML = "";
 
-       if (event.target.id === "residentialSuite") {
-            type = "residential suite";
+      if (event.target.id === "residentialSuite") {
+        type = "residential suite";
       } else if (event.target.id === "juniorSuite") {
         type = "junior suite";
       } else if (event.target.id === "suite") {
@@ -160,7 +157,7 @@ let domUpdates = {
       let getDates = hotel.getAvailableRoomByDate(date);
       let getRoomsByType = hotel.getAvailableRoomType(type);
 
-      if(getRoomsByType.length > 0) {
+      if (getRoomsByType.length > 0) {
         getRoomsByType.forEach((room) => {
           availableRoomsContainer.innerHTML += `
              <section class="available-room room-details-info ${room.number}" id="${room.number}" tabindex="0" role="button" >
@@ -178,21 +175,18 @@ let domUpdates = {
     
              `;
         });
-    
+
         domUpdates.hide(filterByTypeContainer);
         domUpdates.hide(calendarFindSection);
-        domUpdates.show(emptyContainer)
-        
+        domUpdates.show(emptyContainer);
       } else {
         availableRoomsContainer.innerHTML = `              
        <h1 class="apology-message"> We are so very sorry, but there are no rooms available given your criteria. Please try different options. </h1>
-      `
+      `;
       }
-    
-     } else {
+    } else {
       event.preventDefault();
     }
-
   },
 };
 
