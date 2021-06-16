@@ -26,15 +26,12 @@ To solidify and demonstrate the understanding of:
 ## How does this work?
 Demonstration of the log-in view.
 
-![Log-in View]()
+![Log-in View](https://media.giphy.com/media/JjZZOvTJWzq1LsEDQD/giphy.gif)
 
-Demonstration of the dashboard view.
-
-![Dashboard View]()
 
 Demonstration of the book-a-room view.
 
-![Book a Room View]()
+![Book a Room View](https://media.giphy.com/media/rob71mvb5vifN1VHHj/giphy.gif)
 
 
 **[Back to top](#table-of-contents)**

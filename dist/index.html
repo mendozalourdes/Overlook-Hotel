@@ -15,11 +15,11 @@
 
 <header>
 
-  <body class="login-body">
+  <body class="login-body" id="loginBody">
     <section class="log-in page-view" id="logInPageView">
 
       <main id="main-holder">
-        <h1 id="login-header">Login</h1>
+        <h1 class="login-header" id="login-header">Login</h1>
 
         <div id="login-error-msg-holder">
           <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
@@ -184,7 +184,7 @@
       <section class="booking-form container" id="bookingFormContainer">
 
         <div class="calender-and-find-section" id="calendarFindSection">
-          <h1 for="start">I want to book a room on this date:</h1>
+          <h1 class="calendar-header" for="start">I want to book a room on this date:</h1>
           <input type="date" class="calendar" id="bookingDateCalendar" name="trip-start" value="2021-06-01"
             min="2021-06-01" max="2024-12-31" required>
           <!-- <input type="date" id="arrivalDate" value="2021-01-01" min="2021-01-01" name="arrive" required> -->

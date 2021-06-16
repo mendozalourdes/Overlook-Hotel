@@ -61,7 +61,7 @@ let domUpdates = {
 
     myBookings.forEach((booking, i) => {
       pastRoomsContainer.innerHTML += `
-                <section class="room-info-container room-details-info past-bookings-info room-cards" id="pastBookingsInfo">
+                <section class="room-info-container room-details-info past-bookings-info" id="pastBookingsInfo">
                     <article class="image-section">
                   <article class="image-container">
                     <img class="residential-suite image" id="residentialSuiteImage" alt="residential-suite-room"

@@ -50,6 +50,7 @@ let loginButton = document.getElementById("login-form-submit");
 let loginErrorMsg = document.getElementById("login-error-msg");
 let startOverBtn = document.getElementById("startOverBtn");
 let pageTitle1 = document.getElementById('pageTitle1')
+let loginBody = document.getElementById('loginBody');
 
 //variables
 let customer,
@@ -229,3 +230,34 @@ function bookRoom(event) {
     event.preventDefault();
   }
 }
+
+
+
+
+///Use this code to run the page with a randomizer and 
+
+// window.onload = startUp();
+
+
+// function startUp () {
+//   apiCalls.retrieveData()
+//     .then((promise) => {
+//       const bookingsRepo = makeBookingInstances(promise[1]);
+//       allBookings = new BookingsRepository(bookingsRepo);
+//       allCustomers = makeCustomerInstances(promise[0]);
+//       allRooms = makeRoomsInstances(promise[2])
+//       makeOneCustomer(promise[3])
+//       console.log("oneCust", customer)
+//       console.log("allRooms", allRooms)
+//       console.log("allBookings", allBookings)
+//       console.log("allCust", allCustomers)
+//       // domUpdates.updateWelcomeMessage(allCustomers);
+//       // domUpdates.renderPastBookings(allBookings, allCustomers)
+//     })
+// }
+
+// function makeOneCustomer(apiCustomerData) {
+//   // let randomNumber = Math.floor(Math.random() * apiCustomerData.customers.length);
+//   customer = new Customer(apiCustomerData);
+
+// }
