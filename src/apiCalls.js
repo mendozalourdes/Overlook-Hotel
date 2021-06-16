@@ -4,7 +4,7 @@ import {
   startUp
 } from './scripts';
 
-
+// let randomNumber = Math.floor(Math.random() * 50);
 
 const checkForError = (response) => {
     if (!response.ok) {
@@ -58,6 +58,10 @@ function retrieveData() {
   function retrieveOneCustomerData(customerID) {
     return Promise.all([fetchOneCustomer(customerID)])
   }
+
+  // function retrieveOneCustomerData(randomNumber) {
+  //   return Promise.all([fetchOneCustomer(randomNumber)])
+  // }
 
   function bookNewRoom(customerID, date, roomNumber) {
     return fetch('http://localhost:3001/api/v1/bookings', {

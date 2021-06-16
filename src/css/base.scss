@@ -59,19 +59,19 @@ p {
 
 .dashboard-container {
   border: 5px solid purple;
-
+  overflow-y: scroll;
 }
 
 .dashboard-room-view {
-  border: 5px solid pink;
+  // border: 5px solid pink;
   margin-top: 3em;
   width: 95vw;
 }
 
 .room-cards {
   display: grid;
-  grid-template-columns: repeat(2, 2fr);
-  grid-template-rows: repeat(8, 1.5fr);
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(4, 1.5fr);
   grid-gap: 3%;
   grid-column-gap: 0%;
   width: 50vw;
@@ -93,12 +93,22 @@ p {
 
 .room-options-container {
   width: 50vw;
+  // border: 5px solid orange;
+  order: 1;
+}
+
+
+.booking-section {
+  width: 48vw;
+  height: 144vh;
+  // border: 5px solid orange;
+  order: 2;
 }
 
 .book-room-view {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  // justify-content: space-between;
   width: 100%;
 }
 
@@ -106,10 +116,7 @@ p {
   width: 48vw;
 }
 
-.booking-section {
-  width: 48vw;
-  height: 144vh;
-}
+
 
 .book-room-button,
 .button {
@@ -236,8 +243,8 @@ p {
 
 .booking-section-header-container,
 .room-option-header-container {
-  // border: 1px solid purple;
   padding: 2%;
+  font-size: 1em;
 }
 
 html {
@@ -278,7 +285,7 @@ body {
 
 .calendar {
   border: 1px solid purple;
-  width: 8vw;
+  width: 9vw;
   height: 3vh;
   font-size: 1em;
 }
@@ -385,6 +392,10 @@ body {
   outline: none;
 }
 
+.login-header {
+  font-size: 2em;
+}
+
 .hidden {
   display: none;
 }
@@ -437,6 +448,18 @@ body {
     background-color: #d6d3d3e6;
     border-radius: 0.5em;
     padding: 0.5em;
+  }
+  .room-cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1.5fr);
+    grid-gap: 3%;
+    grid-column-gap: 0%;
+    width: 50vw;
+    height: 140vh;
+  }
+  .hidden {
+    display: none;
   }
 }
 
@@ -500,9 +523,21 @@ h3 {
   font-family: "Verdana", sans-serif;
 }
 .dashboard-room-view {
-  border: 5px solid pink;
+  // border: 5px solid pink;
   margin-top: 3em;
   width: 98vw;
+}
+.room-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  grid-template-rows: repeat(2, 1.5fr);
+  grid-gap: 3%;
+  grid-column-gap: 0%;
+  width: 50vw;
+  height: 140vh;
+}
+.hidden {
+  display: none;
 }
 }
 
@@ -552,4 +587,55 @@ h3 {
   .total-memories-info {
     font-size: .5em;
   }
+  .room-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-rows: repeat(2, 1.5fr);
+    grid-gap: 3%;
+    grid-column-gap: 0%;
+    width: 50vw;
+    height: 140vh;
+  }
+  .filter-roomType-header { 
+    font-size: 2em;
+  }
+  .calendar-header {
+    font-size: 1em;
+  }
+  .button {
+    background: plum;
+    color: purple;
+    text-transform: uppercase;
+    border-radius: 15%;
+    padding: 0.5em;
+    font-weight: bold;
+    font-size: 0.75em;
+    height: 6vh;
+    width: 8vw;
+  }
+  .book-room-button,
+.button {
+  background: plum;
+  color: purple;
+  text-transform: uppercase;
+  border-radius: 5%;
+  padding: 0.5em;
+  font-weight: bold;
+  // font-size: 1em;
+  height: 6vh;
+  width: 10vw;
+  font-size: 1em;
+}
+.book-room-view {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.hidden {
+  display: none;
+}
+.select-room-heading {
+  font-size: 2em;
+}
 }
