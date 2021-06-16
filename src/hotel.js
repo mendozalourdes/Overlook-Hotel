@@ -15,8 +15,7 @@ class Hotel {
 
             return acc
         }, [])
-        // console.log("findDateMatches", findDateMatches)
-        // console.log("rooooooms", this.rooms)
+
 
         const findRoomsAvailableDate = this.rooms.filter(room => {
 
@@ -25,7 +24,6 @@ class Hotel {
             }
 
         })
-        console.log("findAvail", findRoomsAvailableDate)
 
         if(!findRoomsAvailableDate) {
             return 'We are terribly sorry, but there are no rooms available given your requests.'
