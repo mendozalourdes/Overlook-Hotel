@@ -38,9 +38,7 @@ describe('Hotel', () => {
     it('should be able to determine room availability by date', () => {
 
     const checkAvailable1 = hotel.getAvailableRoomByDate("2020/02/14")
-    // console.log("checkAvail", checkAvailable1)
     const availableRooms = [testRooms[0], testRooms[1], testRooms[2], testRooms[3], testRooms[4], testRooms[6], testRooms[7], testRooms[8], testRooms[9]]
-    // console.log("answer", availableRooms)
     expect(checkAvailable1).to.deep.equal(availableRooms);
     
     }); 
@@ -48,11 +46,8 @@ describe('Hotel', () => {
     it('should be able to determine room availability by type', () => {
 
         const checkAvailable1 = hotel.getAvailableRoomByDate("2020/02/14")
-        // console.log("checkAvail", checkAvailable1)
         const availableRooms = [testRooms[0], testRooms[1], testRooms[2], testRooms[3], testRooms[4], testRooms[6], testRooms[7], testRooms[8], testRooms[9]]
-        // console.log("answer", availableRooms)
         const byType = hotel.getAvailableRoomType("junior suite");
-        // console.log("answer", byType)
         const answer = [
           {
             number: 4,

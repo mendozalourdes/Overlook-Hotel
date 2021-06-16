@@ -57,6 +57,17 @@ p {
   width: 50vh;
 }
 
+.dashboard-container {
+  border: 5px solid purple;
+
+}
+
+.dashboard-room-view {
+  border: 5px solid pink;
+  margin-top: 3em;
+  width: 95vw;
+}
+
 .room-cards {
   display: grid;
   grid-template-columns: repeat(2, 2fr);
@@ -110,7 +121,8 @@ p {
   font-weight: bold;
   // font-size: 1em;
   height: 5vh;
-  width: 6vw;
+  width: 21vw;
+  font-size: 1em;
 }
 
 .book-room-button:hover {
@@ -122,10 +134,10 @@ p {
 
 .past-room-card-container {
   height: 300vh;
-  width: 203vh;
+  width: 55vh;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(8, 1.5fr);
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(50, 1.5fr);
   grid-gap: 3%;
   grid-column-gap: 0%;
   // height: 105vh;
@@ -167,14 +179,11 @@ p {
   cursor: pointer;
 }
 
-.main-tour-container {
-  height: 375vh;
-}
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(8, 1.5fr);
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(50, 1.5fr);
   grid-gap: 3%;
   grid-column-gap: 0%;
   height: 105vh;
@@ -189,6 +198,7 @@ p {
 
 .text-section {
   margin-top: 1.5em;
+  font-size: 1.25em;
 }
 
 .text-info-box {
@@ -402,7 +412,7 @@ body {
     padding: 10px 10px 10px 10px;
     background-color: white;
     width: 35vw;
-    height: 60vh;
+    height: 75vh;
     margin-left: 5%;
     font-size: 2.5em;
   }
@@ -411,6 +421,22 @@ body {
     border-radius: 0.5em;
     width: 20vw;
     height: 25vh;
+  }
+  .past-room-card-container {
+    height: 300vh;
+    width: 105vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(15, 1.5fr);
+    grid-gap: 3%;
+    grid-column-gap: 0%;
+    // height: 105vh;
+    margin-left: 2em;
+  }
+  .text-info-box {
+    background-color: #d6d3d3e6;
+    border-radius: 0.5em;
+    padding: 0.5em;
   }
 }
 
@@ -431,33 +457,53 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 21vw;
-    height: 65vh;
+    width: 25vw;
+    height: 72vh;
     font-size: 1.5em;
   }
   .booking-info {
     height: 5em;
     width: 5em;
   }
+  // .header1 {
+  //   margin-top: 1em;
+  //   padding-top: 3em;
+  // }
 
-  .header1 {
-    margin-top: 1em;
-    padding-top: 3em;
-  }
-
-  .nav-section {
-    padding-top: 1em;
-  }
+  // .nav-section {
+  //   padding-top: 1em;
+  // }
   .icon {
     height: 5vh;
     width: 3vw;
   }
-
-  .tour-image {
-    border-radius: 0.5em;
-    width: 20vw;
-    height: 25vh;
+  .past-room-card-container {
+    height: 300vh;
+    width: 150vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(10, 1.5fr);
+    grid-gap: 3%;
+    grid-column-gap: 0%;
+    // height: 105vh;
+    margin-left: 2em;
   }
+  .text-info-box {
+    background-color: #d6d3d3e6;
+    border-radius: 0.5em;
+    padding: 0.5em;
+  }
+  h1,
+h2,
+h3 {
+  font-size: .5em;
+  font-family: "Verdana", sans-serif;
+}
+.dashboard-room-view {
+  border: 5px solid pink;
+  margin-top: 3em;
+  width: 98vw;
+}
 }
 
 /* desktop styles */
@@ -467,7 +513,7 @@ body {
   }
   .room-info-container {
     width: 21vw;
-    height: 60vh;
+    height: 68vh;
     margin: 2%;
     font-size: 1.5em;
   }
@@ -475,14 +521,35 @@ body {
   .card-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1.5fr);
+    grid-template-rows: repeat(10, 1.5fr);
     grid-gap: 3%;
     grid-column-gap: 0%;
     height: 105vh;
+  }
+  .past-room-card-container {
+    height: 300vh;
+    width: 184vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(10, 1.5fr);
+    grid-gap: 3%;
+    grid-column-gap: 0%;
+    // height: 105vh;
+    margin-left: 2em;
   }
 
   .header1 {
     margin-top: 1em;
     padding-top: 2em;
+  }
+  .text-info-box {
+    background-color: #d6d3d3e6;
+    border-radius: 0.5em;
+    padding: 0.5em;
+  }
+  .room-details, 
+  .total-cost-info, 
+  .total-memories-info {
+    font-size: .5em;
   }
 }

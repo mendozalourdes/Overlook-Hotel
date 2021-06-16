@@ -24,18 +24,5 @@ describe('Bookings Repository', () => {
     
       });
 
-
-      it('should be able to make a new booking', () => {
-
-        const newBooking = bookingsRepository.makeNewBooking(1, "2020/06/13", 1);
-        // console.log("newBook", newBooking)
-        let answer = {
-          "userID": 1, 
-          "date": "2020/06/13", 
-          "roomNumber": 1
-      }
-      expect(newBooking).to.deep.equal(answer);
-      }); 
-    
     
 });
