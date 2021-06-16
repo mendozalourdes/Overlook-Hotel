@@ -1,105 +1,115 @@
-# Webpack Starter Kit
+# Overlook-Hotel
+### Table of Contents
+- [Overview](#overview-and-project-goals)
+- [Features](#features)
+- [How does this work?](#how-does-this-work)
+- [Project Reflection](#project-reflection)
+- [How To Contribute](#want-to-contribute)
+- [Instructions for Running Project](#Instructions-for-running-project)
+- [Authors and Contributors](#credits)
 
-## Clone This Repo
+## Overview and Project Goals
+The [goal](https://frontend.turing.edu/projects/overlook.html) of this group project that was made for Module  1 at [Turing School of Software and Design](https://turing.io/) is to build create an hotel booking website using Javascript, HTML, SCSS, Webpack with data from an API.  
 
-That's right, _clone_ not fork. You will use this repo multiple times, but you can only fork a repository once. So here is what you need to do to clone the repo and still be able to push changes to your repo:
+## Why was this project created?
+To solidify and demonstrate the understanding of:
+1. Use OOP to drive the design of the application and code. 
+2. Work with an API to send and receive data. 
+3. Create a robust test suite that thoroughly tests all functionality of a client-side application
 
-1. Clone down this repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
-1. Remove the default remote: `git remote rm origin` (notice that `git remote -v` not gives you back nothing)
-1. Create a new repo on GitHub with the name of `[what you want to name the repo]` to be consistent with naming
-1. Copy the address that you would use to clone down this repo - something like `git@github.com:...`
-1. Add this remote to your cloned down repo: `git remote add origin [address you copied in the previous step]` - do not include the brackets
+## Features
+* A website that allows users to log into their account, view their past and future hotel stays, and book new rooms. 
 
-Now try to commit something and push it up to your new repo. If everything is setup correctly, you should see the changes on GitHub.
 
-## Setup
+**[Back to top](#table-of-contents)**
 
-After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo. 
+## How does this work?
+Demonstration of the log-in view.
 
-Then install the library dependencies. Run:
+![Log-in View]()
 
-```bash
-npm install
-```
+Demonstration of the dashboard view.
 
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with some `h1` text, Turing logo image and a beautiful gradient background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
+![Dashboard View]()
 
-## Where to Add Your Code
+Demonstration of the book-a-room view.
 
-### JavaScript
+![Book a Room View]()
 
-You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
 
-**Create all of your feature code files in the `src` directory.**
+**[Back to top](#table-of-contents)**
 
-Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
 
-Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`. It's something you will see in React and beyond.
+## Instructions for Running Project
+1. This project fetches data from an API so you will need to begin by cloning down the API and running it.
+2. Clone the API by running git clone git@github.com: github.com/turingschool-examples/overlook-api
+3. CD into that directory, run npm install and then npm start. You should see “What's cookin-starter-kit API is now running on http://localhost:3001 !”
+4. Open a NEW terminal tab and cd somewhere outside of the API repo you just cloned. Do not close the tab that is running the API.
+5. Clone a copy of this repo to your machine by running git clone git@github.com:clairefields15/whats-cookin.git
+6. CD into the directory
+7. Run npm install
+8. Run npm start
+9. A link will appear in the terminal similar to http://localhost:8080/ (you might see 8081). Open that link in your browser.
 
-### HTML
 
-Add the HTML you need in the `index.html` file in the `./dist` directory. There is some boilerplate HTML that exists from the start that you can modify.
+## Technologies Used
+<p align="left">
+  <img src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="javascript" />
+  <img src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white" alt="html5"/>
+  <img src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"/>
+  <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="Github" />
+  <p>Webpack</p>
+  <p>API</p>
+  <p>SCSS</p>
+  <p>Testing Frameworks Mocha & Chai</p>
 
-### CSS (SCSS/SASS)
 
-This project is setup to use SCSS/Sass files by default instead of your regular CSS files. Add your SCSS files in the `src/css` directory. There is a `base.scss` file already there, but you can change this file and add multiple SCSS files in this directory.
+## Project Reflection
 
-This might sound weird, but you need to `import` your SCSS files in the JavaScript entry file (`index.js`) for the styles to be applied to your HTML. The example `base.scss` file has already been imported in the JavaScript entry file as an example.
+##### Wins
+* Successful implementation API fetch and post Calls. 
+* Successful creation of a test suite to confirm logic. 
 
-### Images
 
-Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` image files in the JavaScript entry file (`index.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
+##### Challenges
+* Creating a modern page with updated SCSS features. 
 
-## How to View Your Code in Action
+#### Future Features
+* Be able to click through different versions of the room types. 
 
-In the terminal, run:
+## Credits
+#### Authors
+<table>
+    <tr>
+        <td> Lourdes Mendoza <a href="https://github.com/mendozalourdes/intention-timer">GH</td>
+    </tr>
+    </tr>
+    <td><img src="https://avatars.githubusercontent.com/u/78240633?v=4" alt="Lourdes GH img"
+ width="150" height="auto" /></td>
+    <tr>
+</table>
 
-```bash
-npm start
-```
+#### Reviewers
+<table>
+    <tr>
+         <td> Em Orendorff <a href="https://github.com/emorendorff">GH</td>
+    </tr>
+    </tr>
+</tr>
+</table>
 
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
+#### Project Manager
+<table>
+    <tr>
+         <td> Nik Seif <a href="https://github.com/niksseif">GH</td>
+    </tr>
+    </tr>
+    <td><img src="https://avatars.githubusercontent.com/u/24830759?v=4" alt="Nik GH img"
+ width="150" height="auto" /></td>
+</tr>
+</table>
 
-```bash
-Project is running at http://localhost:8080/
-```
-
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
-
-## Webpack?
-
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
-
-## Deploying to GitHub Pages
-
-_If you are finished with the functionality and testing of your project_, then you can consider deploying your project to the web! This way anyone can play it without cloning down your repo.
-
-[GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
-
-If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
+**************************************************************************
+###### This project was created for [Turing School of Software and Design](https://turing.io/)
+###### 2021/06/16
+**[Back to top](#table-of-contents)**
