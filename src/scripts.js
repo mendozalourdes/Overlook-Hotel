@@ -45,21 +45,11 @@ let emptyContainer = document.getElementById('emptyContainer')
 let mainHeadingContainer = document.getElementById('mainHeadingContainer');
 let logInPageView = document.getElementById('logInPageView')
 let tempHeading = document.getElementById('tempHeading')
-const loginForm = document.getElementById("login-form");
-const loginButton = document.getElementById("login-form-submit");
-const loginErrorMsg = document.getElementById("login-error-msg");
-
+let loginForm = document.getElementById("login-form");
+let loginButton = document.getElementById("login-form-submit");
+let loginErrorMsg = document.getElementById("login-error-msg");
 let startOverBtn = document.getElementById('startOverBtn')
 
-
-
-// let findMyRoomBtn = document.getElementById('findMyRoomBtn')
-// let checkAvailabilityBtn = document.getElementById('checkAvailabilityBtn');
-// let searchRoomType = document.getElementById('searchRoomType');
-// let roomTypeOption = document.getElementById('checkAvailability');
-// let bookRoomBtn = document.getElementById('bookRoomBtn');
-// let availableRoomsContainer = document.getElementById('availableRoomsContainer');
-// let congratulationsMessage = document.getElementById('congratulationsMessage')
   
   //variables
   let customer, allRooms, booking, bookingRepository, allCustomers, hotel, roomNum, customerPassword, customerUsername;
@@ -79,7 +69,6 @@ loginButton.addEventListener("click", (e) => {
     e.preventDefault();
     logInUser();
 })
-
 window.addEventListener('click', (event) => { if(event.target.id === 'startOverBtn') {
   domUpdates.renderBookingViewAgain()
 } else {
@@ -98,8 +87,9 @@ function logInUser(){
   console.log("customerIDDDDD", customerID)
 
  if (customerUsername === `customer${customerID}` && customerPassword === "overlook2021") {
-     alert("You have successfully logged in.");
-     // location.reload();
+   loginErrorMsg.innerHTML = '';
+   loginErrorMsg.innerHTML = `<p id="login-error-msg">You have successfully logged in.</p>`
+   loginErrorMsg.style.opacity = 1;
      domUpdates.hide(logInPageView)
      domUpdates.show(dashboardView);
      domUpdates.hide(tempHeading);
@@ -127,13 +117,9 @@ function determineUsername () {
     stringID = customerUsername.slice(-2)
     customerID = parseInt(stringID)
   }
-console.log("allllll", allCustomers)
-  let foundCustomer = allCustomers.find(customer => customer.id === customerID)
-    console.log("foundCust", foundCustomer)
-  console.log("customerID", customerID)
 
+  let foundCustomer = allCustomers.find(customer => customer.id === customerID)
   if (foundCustomer) {
-    // apiCalls.fetchOneCustomer(customerID);
     return customerID
   } else {
     loginErrorMsg.style.opacity = 1;
@@ -146,22 +132,12 @@ console.log("allllll", allCustomers)
 export function startUp () {
     apiCalls.retrieveData()
       .then((promise) => {
-        // console.log("promise1", promise[1])
         const bookingsInstances = makeBookingInstances(promise[1]);
   
         bookingRepository = new BookingsRepository(bookingsInstances);
         allCustomers = makeCustomerInstances(promise[0]);
         allRooms = makeRoomsInstances(promise[2])
         makeHotel(bookingRepository, allRooms)
-        // console.log("hotelllll", hotel)
-        // console.log("bookingsInstances", bookingsInstances)
-        // console.log("oneCust", customer)
-        // console.log("allRooms", allRooms)
-        // console.log("bookingsRepoooo", bookingRepository)
-        // console.log("allCust", allCustomers)
-        // domUpdates.getAllDataToDom(customer, bookingRepository, allRooms, hotel);
-      //  getAllData(customer, bookingRepository, allRooms, hotel)
-      // console.log("customerID", customer)
         
       })
   }
@@ -170,7 +146,6 @@ function getCustomerFromLogIn(customerID) {
   apiCalls.retrieveOneCustomerData(customerID)
   .then((promise) => {
     makeOneCustomer(promise[0])
-    console.log("amIACustomer", customer)
     domUpdates.getAllDataToDom(customer, bookingRepository, allRooms, hotel);
   })
 
@@ -181,7 +156,6 @@ const makeBookingInstances = (apiBookingsData) => {
     const newBookings = apiBookingsData.bookings.map(booking => {
         return new Booking(booking)
     })
-    // console.log("newOnes", newBookings)
     return newBookings
 }
 
@@ -251,13 +225,7 @@ function renderBookRoomView(event) {
         let roomNum = parseInt(event.target.id)
         let date = dayjs(bookingDateCalendar.value).format('YYYY/MM/DD');
         let customerBooking = customer
-        // roomNum = chosenRoom.number
-        console.log("chosen", roomNum)
-        console.log("dateVal", date)
-        console.log("custttttID", customerBooking.id)
         apiCalls.bookNewRoom(customerBooking.id, date, roomNum)
-        // domUpdates.renderPastandFutureBookings(customer, bookingRepository, allRooms)
-        // console.log("customerRooms", customer)
     } else {
       event.preventDefault();
     }
