@@ -1,16 +1,15 @@
 import domUpdates from "./domUpdates";
 
-
 import {
   startUp
 } from './scripts';
 
-let randomNumber = Math.floor(Math.random() * 50);
 
 
 const checkForError = (response) => {
     if (!response.ok) {
-      throw new Error('Something went wrong, please try again,')
+      console.error(`POST Request Error: ${err.message} ${response}`)
+      throw new Error('Something went wrong, please try again.')
     } else {
       return response.json()
     }
@@ -28,28 +27,28 @@ const checkForError = (response) => {
 
   const fetchOneCustomer = (id) => {
     return fetch(`http://localhost:3001/api/v1/customers/${id}`)
-    .then(response => checkForError(response))
-    .catch(error => console.error(`Customer API Error: ${error.message}`));
+    .then(response => response.json())
+    .catch(domUpdates.catchErrorMessage);
 }
 
   
 const fetchCustomersData = () => {
     return fetch('http://localhost:3001/api/v1/customers')
-    .then(response => checkForError(response))
-    .catch(error => console.error(`Customers API Error: ${error.message}`));
+    .then(response => response.json())
+    .catch(domUpdates.catchErrorMessage);
 }
 
 
 const fetchBookingsData = () => {
     return fetch('http://localhost:3001/api/v1/bookings')
-    .then(response => checkForError(response))
-    .catch(error => console.error(`Bookings API Error: ${error.message}`));
+    .then(response => response.json())
+    .catch(domUpdates.catchErrorMessage);
 }
 
 const fetchRoomsData = () => {
     return fetch('http://localhost:3001/api/v1/rooms')
-    .then(response => checkForError(response))
-    .catch(error => console.error(`Rooms API Error: ${error.message}`));
+    .then(response => response.json())
+    .catch(domUpdates.catchErrorMessage);
 }
 
 function retrieveData() {
