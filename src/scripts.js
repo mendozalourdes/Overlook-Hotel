@@ -131,7 +131,11 @@ function determineUsername() {
   }
 }
 
+
+
+
 export function startUp() {
+  
   apiCalls.retrieveData().then((promise) => {
     const bookingsInstances = makeBookingInstances(promise[1]);
 

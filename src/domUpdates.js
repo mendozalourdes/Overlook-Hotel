@@ -1,4 +1,11 @@
+import {
+  checkDateValidity
+} from './scripts';
+
+
 let dayjs = require("dayjs");
+
+
 
 let domUpdates = {
   confirmationInfo() {
@@ -101,13 +108,29 @@ let domUpdates = {
 
   generateRoomOptions(event, date, hotel, customer) {
     let eventTarget = event.target.closest(".find-my-room-btn");
+    let currentDate = dayjs()
+    let selectedDate;
 
-    date = dayjs(bookingDateCalendar.value).format("YYYY/MM/DD");
+     date = bookingDateCalendar.value
+     let inputDate  = dayjs(date)
+
+     if (inputDate.isAfter(currentDate)) {
+      // console.log(`${inputDate} is after ${currentDate}`);
+       selectedDate = inputDate.format('YYYY/MM/DD')
+    }  else {
+      event.preventDefault();
+      // console.log(`${inputDate} is before ${currentDate}`);
+       return alert("Please input a future date.")
+    }
+
+
+    // console.log("inputDate", inputDate)
+
     availableRoomsContainer.innerHTML = "";
     let availableRooms;
 
     if (eventTarget) {
-      availableRooms = hotel.getAvailableRoomByDate(date);
+      availableRooms = hotel.getAvailableRoomByDate(selectedDate);
     }
 
     if (availableRooms.length > 0) {
