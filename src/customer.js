@@ -30,17 +30,16 @@ class Customer {
                     }
 
                     updatedBookings.push(booking)
-                    // console.log("booking", booking)
-                    // return booking
+
                 })
 
             })
 
-            // console.log("updateBOoking", updatedBookings)
+        
 
 
         this.allBookings = findBookings
-        // console.log(this.allBookings)
+ 
             return this.allBookings
 
 
@@ -48,9 +47,9 @@ class Customer {
       }
 
     getLifetimeBookingCost(allBookings, rooms) {
-        // console.log("rooms", rooms)
+ 
         const allPastBookings = this.findAllBookings(allBookings, rooms)
-        // console.log("alllll", allPastBookings)
+   
         const getCost = allPastBookings.reduce((total, booking) => {
             rooms.forEach(room => {
                 if(booking.roomNumber === room.number) {
@@ -58,14 +57,13 @@ class Customer {
                     total+=room.costPerNight
                 }
 
-                // console.log("booking", booking)
             })
 
        return total
         }, 0)
         return Number(getCost.toFixed(2))
     }
-    // Number(x.toFixed(2));
+
 
 }
 
