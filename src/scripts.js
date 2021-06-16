@@ -49,6 +49,7 @@ let loginForm = document.getElementById("login-form");
 let loginButton = document.getElementById("login-form-submit");
 let loginErrorMsg = document.getElementById("login-error-msg");
 let startOverBtn = document.getElementById("startOverBtn");
+let pageTitle1 = document.getElementById('pageTitle1')
 
 //variables
 let customer,

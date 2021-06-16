@@ -1,6 +1,3 @@
-import {
-  checkDateValidity
-} from './scripts';
 
 
 let dayjs = require("dayjs");
@@ -23,13 +20,6 @@ let domUpdates = {
     domUpdates.show(calendarFindSection);
     domUpdates.hide(emptyContainer);
     availableRoomsContainer.innerHTML = "";
-  },
-
-  bookingErrorMessage() {
-    availableRoomsContainer.innerHTML = "";
-    availableRoomsContainer.innerHTML += `
-        <p class="error-message" id="errorMessage"> Sorry, that did not work. Please try again.</p>
-        `;
   },
 
   show(element) {
@@ -115,16 +105,11 @@ let domUpdates = {
      let inputDate  = dayjs(date)
 
      if (inputDate.isAfter(currentDate)) {
-      // console.log(`${inputDate} is after ${currentDate}`);
        selectedDate = inputDate.format('YYYY/MM/DD')
     }  else {
       event.preventDefault();
-      // console.log(`${inputDate} is before ${currentDate}`);
        return alert("Please input a future date.")
     }
-
-
-    // console.log("inputDate", inputDate)
 
     availableRoomsContainer.innerHTML = "";
     let availableRooms;
@@ -211,6 +196,21 @@ let domUpdates = {
       event.preventDefault();
     }
   },
+
+
+  catchErrorMessage() {
+      pageTitle1.innerText = 'Our servers are down, please try again later.'
+  }, 
+
+
+  bookingErrorMessage() {
+    availableRoomsContainer.innerHTML = "";
+    availableRoomsContainer.innerHTML += `
+        <p class="error-message" id="errorMessage"> Sorry, that did not work. Please try again.</p>
+        `;
+  },
 };
+
+
 
 export default domUpdates;
